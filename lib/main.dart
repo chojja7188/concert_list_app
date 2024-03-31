@@ -1,4 +1,4 @@
-import 'package:concert_list_app/concert_list_view.dart';
+import 'package:concert_list_app/view/concert_list_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

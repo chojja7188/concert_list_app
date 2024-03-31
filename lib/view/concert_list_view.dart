@@ -1,4 +1,4 @@
-import 'package:concert_list_app/concert_box.dart';
+import 'package:concert_list_app/widget/concert_box.dart';
 import 'package:flutter/material.dart';
 
 class ConcertListView extends StatefulWidget {
