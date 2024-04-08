@@ -1,4 +1,4 @@
-import 'package:concert_list_app/widget/concert_box.dart';
+import 'package:concert_list_app/presentation/component/home/concert_box.dart';
 import 'package:flutter/material.dart';
 
 class ConcertList extends StatefulWidget {
@@ -11,41 +11,22 @@ class ConcertList extends StatefulWidget {
 class _ConcertListState extends State<ConcertList> {
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ConcertBox(),
-                ConcertBox()
-              ],
-            ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GridView.builder(
+          shrinkWrap: true,
+          physics: ClampingScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 8,
+            childAspectRatio: 1/2,
           ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ConcertBox(),
-                ConcertBox()
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ConcertBox(),
-                ConcertBox()
-              ],
-            ),
-          ),
-        ],
-      )
+          itemCount: 12,
+          itemBuilder: (BuildContext context, int index) {
+            return ConcertBox();
+          }
+      ),
     );
   }
 }

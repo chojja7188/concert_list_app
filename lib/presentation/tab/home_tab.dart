@@ -7,12 +7,14 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          HomeHeader(),
-          ConcertList(),
-        ],
+    return Scrollbar(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeHeader(),
+            ConcertList(),
+          ],
+        ),
       ),
     );
   }
