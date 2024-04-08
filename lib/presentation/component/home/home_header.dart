@@ -14,11 +14,12 @@ class HomeHeader extends StatelessWidget {
         ),
         Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder(), contentPadding: EdgeInsets.all(8))
+                    decoration: InputDecoration(border: OutlineInputBorder(), contentPadding: EdgeInsets.all(8)),
+                    onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus()
                 ),
               ),
             ),

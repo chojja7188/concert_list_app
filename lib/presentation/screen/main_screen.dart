@@ -1,5 +1,5 @@
+import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
-import 'package:concert_list_app/presentation/component/home/concert_list.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -9,9 +9,10 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: const Text('Title', style: TextStyle(color: Colors.white)),
+            scrolledUnderElevation: 0,
+            title: Image.asset('assets/images/mocon_logo_light.png', width: 140),
             centerTitle: true,
-            backgroundColor: Colors.black87),
+            backgroundColor: UiConfig.primaryColor),
         body: SafeArea(
           child: HomeTab()
         )

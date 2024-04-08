@@ -1,3 +1,4 @@
+import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/screen/main_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Colors.black87,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
+        primaryColor: UiConfig.primaryColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: UiConfig.primaryColor,
+          primary: UiConfig.primaryColor
+        ),
         useMaterial3: true,
       ),
       home: MainScreen()
