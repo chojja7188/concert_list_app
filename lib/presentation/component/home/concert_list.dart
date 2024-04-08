@@ -1,14 +1,14 @@
 import 'package:concert_list_app/widget/concert_box.dart';
 import 'package:flutter/material.dart';
 
-class ConcertListView extends StatefulWidget {
-  const ConcertListView({super.key});
+class ConcertList extends StatefulWidget {
+  const ConcertList({super.key});
 
   @override
-  State<ConcertListView> createState() => _ConcertListViewState();
+  State<ConcertList> createState() => _ConcertListState();
 }
 
-class _ConcertListViewState extends State<ConcertListView> {
+class _ConcertListState extends State<ConcertList> {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
