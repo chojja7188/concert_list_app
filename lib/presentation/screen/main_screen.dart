@@ -1,18 +1,23 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
+import 'package:concert_list_app/presentation/tab/my_page_tab.dart';
+import 'package:concert_list_app/presentation/tab/search_tab.dart';
+import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class MainScreen extends StatelessWidget {
+  MainScreen({Key? key}) : super(key: key);
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
+  final List<Widget> _tabs = [
+    HomeTab(),
+    SearchTab(),
+    MyPageTab()
+  ];
 
-class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    int _selectedPage = 0;
+    final viewModel = Provider.of<MainViewModel>(context);
     return Scaffold(
       appBar: AppBar(
           scrolledUnderElevation: 0,
@@ -20,11 +25,15 @@ class _MainScreenState extends State<MainScreen> {
           centerTitle: true,
           backgroundColor: UiConfig.primaryColor),
       body: SafeArea(
-          child: HomeTab()
+          child: Consumer<MainViewModel>(
+            builder: (context, main, child) {
+              return _tabs.elementAt(viewModel.selectedTab);
+            },
+          )
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => setState(() {_selectedPage = value;}),
-        currentIndex: _selectedPage,
+        onTap: (value) => viewModel.moveTab(value),
+        currentIndex: viewModel.selectedTab,
         iconSize: 24,
         items: [
           BottomNavigationBarItem(

@@ -1,6 +1,8 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/screen/main_screen.dart';
+import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: MainScreen()
+      home: ChangeNotifierProvider(
+        create: (_) => MainViewModel(),
+          child: MainScreen())
     );
   }
 }
