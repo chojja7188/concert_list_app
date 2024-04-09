@@ -1,7 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/my_page_tab.dart';
-import 'package:concert_list_app/presentation/tab/search_tab.dart';
+import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +11,8 @@ class MainScreen extends StatelessWidget {
 
   final List<Widget> _tabs = [
     HomeTab(),
-    SearchTab(),
-    MyPageTab()
+    MoreTab(),
+    MoreTab()
   ];
 
   @override
@@ -34,19 +34,27 @@ class MainScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) => viewModel.moveTab(value),
         currentIndex: viewModel.selectedTab,
-        iconSize: 24,
+        iconSize: 26,
+        unselectedFontSize: 14,
+        selectedLabelStyle: null,
+        selectedIconTheme: IconThemeData(
+          size: 34
+        ),
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
-              label: '홈'
+              activeIcon: Icon(Icons.home),
+              label: '홈',
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined),
+              activeIcon: Icon(Icons.search),
               label: '검색'
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outlined),
-              label: '마이페이지'
+              icon: Icon(Icons.more_horiz_outlined),
+              activeIcon: Icon(Icons.more_horiz),
+              label: '더보기'
           )
         ],
       ),
