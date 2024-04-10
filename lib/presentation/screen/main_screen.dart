@@ -1,7 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
-import 'package:concert_list_app/presentation/tab/my_page_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
+import 'package:concert_list_app/presentation/tab/search_tab.dart';
 import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ class MainScreen extends StatelessWidget {
 
   final List<Widget> _tabs = [
     HomeTab(),
-    MoreTab(),
+    SearchTab(),
     MoreTab()
   ];
 
@@ -38,6 +38,7 @@ class MainScreen extends StatelessWidget {
         unselectedFontSize: 14,
         selectedLabelStyle: null,
         selectedIconTheme: IconThemeData(
+          color: UiConfig.primaryColor,
           size: 34
         ),
         items: [

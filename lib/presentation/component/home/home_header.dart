@@ -8,27 +8,17 @@ class HomeHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
+        Padding(
           padding: EdgeInsets.all(8.0),
-          child: Text('어떤 공연을 찾으시나요?', style: TextStyle(fontSize: 23)),
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: TextField(
-                    decoration: InputDecoration(border: OutlineInputBorder(), contentPadding: EdgeInsets.all(8)),
-                    onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus()
-                ),
+          child: Row(
+            children: [
+              Text('모든 콘서트, ',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)
               ),
-            ),
-            SizedBox(
-                child: IconButton(onPressed: () {}, icon: const Icon(Icons.search, size: 40,))
-            )
-          ],
+              Image.asset('assets/images/mocon_logo_dark.png', width: 100)
+            ],
+          ),
         ),
-        Center(child: ElevatedButton(onPressed: () {}, child: SizedBox(width: 200, child: Center(child: Text('상세검색'))))),
       ],
     );
   }
