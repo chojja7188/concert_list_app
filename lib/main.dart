@@ -2,9 +2,12 @@ import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/screen/main_screen.dart';
 import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
