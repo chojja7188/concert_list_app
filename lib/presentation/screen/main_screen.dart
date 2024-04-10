@@ -1,7 +1,9 @@
 import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/data/repository/concert_repository.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
+import 'package:concert_list_app/view_model/home_view_model.dart';
 import 'package:concert_list_app/view_model/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,7 @@ class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
 
   final List<Widget> _tabs = [
-    HomeTab(),
+    HomeTab(viewModel: HomeViewModel()),
     SearchTab(),
     MoreTab()
   ];

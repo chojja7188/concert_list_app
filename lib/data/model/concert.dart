@@ -15,7 +15,7 @@ class Concert with _$Concert {
     required String genre,
     @JsonKey(name: 'prfstate')
     required String state,
-    @JsonKey(name: 'prfpdform')
+    @JsonKey(name: 'prfpdfrom')
     required String startAt,
     @JsonKey(name: 'prfpdto')
     required String endAt,
@@ -24,7 +24,6 @@ class Concert with _$Concert {
     @JsonKey(name: 'fcltynm')
     required String stage,
     required String openrun,
-    required String area
   }) = _Concert;
 
   factory Concert.fromJson(Map<String, Object?> json) => _$ConcertFromJson(json);

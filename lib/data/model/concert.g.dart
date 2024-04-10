@@ -12,12 +12,11 @@ _$ConcertImpl _$$ConcertImplFromJson(Map<String, dynamic> json) =>
       name: json['prfnm'] as String,
       genre: json['genrenm'] as String,
       state: json['prfstate'] as String,
-      startAt: json['prfpdform'] as String,
+      startAt: json['prfpdfrom'] as String,
       endAt: json['prfpdto'] as String,
       posterPath: json['poster'] as String,
       stage: json['fcltynm'] as String,
       openrun: json['openrun'] as String,
-      area: json['area'] as String,
     );
 
 Map<String, dynamic> _$$ConcertImplToJson(_$ConcertImpl instance) =>
@@ -26,10 +25,9 @@ Map<String, dynamic> _$$ConcertImplToJson(_$ConcertImpl instance) =>
       'prfnm': instance.name,
       'genrenm': instance.genre,
       'prfstate': instance.state,
-      'prfpdform': instance.startAt,
+      'prfpdfrom': instance.startAt,
       'prfpdto': instance.endAt,
       'poster': instance.posterPath,
       'fcltynm': instance.stage,
       'openrun': instance.openrun,
-      'area': instance.area,
     };

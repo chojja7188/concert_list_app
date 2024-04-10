@@ -28,7 +28,7 @@ mixin _$Concert {
   String get genre => throw _privateConstructorUsedError;
   @JsonKey(name: 'prfstate')
   String get state => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfpdform')
+  @JsonKey(name: 'prfpdfrom')
   String get startAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'prfpdto')
   String get endAt => throw _privateConstructorUsedError;
@@ -37,7 +37,6 @@ mixin _$Concert {
   @JsonKey(name: 'fcltynm')
   String get stage => throw _privateConstructorUsedError;
   String get openrun => throw _privateConstructorUsedError;
-  String get area => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,12 +53,11 @@ abstract class $ConcertCopyWith<$Res> {
       @JsonKey(name: 'prfnm') String name,
       @JsonKey(name: 'genrenm') String genre,
       @JsonKey(name: 'prfstate') String state,
-      @JsonKey(name: 'prfpdform') String startAt,
+      @JsonKey(name: 'prfpdfrom') String startAt,
       @JsonKey(name: 'prfpdto') String endAt,
       @JsonKey(name: 'poster') String posterPath,
       @JsonKey(name: 'fcltynm') String stage,
-      String openrun,
-      String area});
+      String openrun});
 }
 
 /// @nodoc
@@ -84,7 +82,6 @@ class _$ConcertCopyWithImpl<$Res, $Val extends Concert>
     Object? posterPath = null,
     Object? stage = null,
     Object? openrun = null,
-    Object? area = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -123,10 +120,6 @@ class _$ConcertCopyWithImpl<$Res, $Val extends Concert>
           ? _value.openrun
           : openrun // ignore: cast_nullable_to_non_nullable
               as String,
-      area: null == area
-          ? _value.area
-          : area // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -143,12 +136,11 @@ abstract class _$$ConcertImplCopyWith<$Res> implements $ConcertCopyWith<$Res> {
       @JsonKey(name: 'prfnm') String name,
       @JsonKey(name: 'genrenm') String genre,
       @JsonKey(name: 'prfstate') String state,
-      @JsonKey(name: 'prfpdform') String startAt,
+      @JsonKey(name: 'prfpdfrom') String startAt,
       @JsonKey(name: 'prfpdto') String endAt,
       @JsonKey(name: 'poster') String posterPath,
       @JsonKey(name: 'fcltynm') String stage,
-      String openrun,
-      String area});
+      String openrun});
 }
 
 /// @nodoc
@@ -171,7 +163,6 @@ class __$$ConcertImplCopyWithImpl<$Res>
     Object? posterPath = null,
     Object? stage = null,
     Object? openrun = null,
-    Object? area = null,
   }) {
     return _then(_$ConcertImpl(
       id: null == id
@@ -210,10 +201,6 @@ class __$$ConcertImplCopyWithImpl<$Res>
           ? _value.openrun
           : openrun // ignore: cast_nullable_to_non_nullable
               as String,
-      area: null == area
-          ? _value.area
-          : area // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -226,12 +213,11 @@ class _$ConcertImpl implements _Concert {
       @JsonKey(name: 'prfnm') required this.name,
       @JsonKey(name: 'genrenm') required this.genre,
       @JsonKey(name: 'prfstate') required this.state,
-      @JsonKey(name: 'prfpdform') required this.startAt,
+      @JsonKey(name: 'prfpdfrom') required this.startAt,
       @JsonKey(name: 'prfpdto') required this.endAt,
       @JsonKey(name: 'poster') required this.posterPath,
       @JsonKey(name: 'fcltynm') required this.stage,
-      required this.openrun,
-      required this.area});
+      required this.openrun});
 
   factory _$ConcertImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConcertImplFromJson(json);
@@ -249,7 +235,7 @@ class _$ConcertImpl implements _Concert {
   @JsonKey(name: 'prfstate')
   final String state;
   @override
-  @JsonKey(name: 'prfpdform')
+  @JsonKey(name: 'prfpdfrom')
   final String startAt;
   @override
   @JsonKey(name: 'prfpdto')
@@ -262,12 +248,10 @@ class _$ConcertImpl implements _Concert {
   final String stage;
   @override
   final String openrun;
-  @override
-  final String area;
 
   @override
   String toString() {
-    return 'Concert(id: $id, name: $name, genre: $genre, state: $state, startAt: $startAt, endAt: $endAt, posterPath: $posterPath, stage: $stage, openrun: $openrun, area: $area)';
+    return 'Concert(id: $id, name: $name, genre: $genre, state: $state, startAt: $startAt, endAt: $endAt, posterPath: $posterPath, stage: $stage, openrun: $openrun)';
   }
 
   @override
@@ -284,14 +268,13 @@ class _$ConcertImpl implements _Concert {
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
             (identical(other.stage, stage) || other.stage == stage) &&
-            (identical(other.openrun, openrun) || other.openrun == openrun) &&
-            (identical(other.area, area) || other.area == area));
+            (identical(other.openrun, openrun) || other.openrun == openrun));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, genre, state, startAt,
-      endAt, posterPath, stage, openrun, area);
+      endAt, posterPath, stage, openrun);
 
   @JsonKey(ignore: true)
   @override
@@ -313,12 +296,11 @@ abstract class _Concert implements Concert {
       @JsonKey(name: 'prfnm') required final String name,
       @JsonKey(name: 'genrenm') required final String genre,
       @JsonKey(name: 'prfstate') required final String state,
-      @JsonKey(name: 'prfpdform') required final String startAt,
+      @JsonKey(name: 'prfpdfrom') required final String startAt,
       @JsonKey(name: 'prfpdto') required final String endAt,
       @JsonKey(name: 'poster') required final String posterPath,
       @JsonKey(name: 'fcltynm') required final String stage,
-      required final String openrun,
-      required final String area}) = _$ConcertImpl;
+      required final String openrun}) = _$ConcertImpl;
 
   factory _Concert.fromJson(Map<String, dynamic> json) = _$ConcertImpl.fromJson;
 
@@ -335,7 +317,7 @@ abstract class _Concert implements Concert {
   @JsonKey(name: 'prfstate')
   String get state;
   @override
-  @JsonKey(name: 'prfpdform')
+  @JsonKey(name: 'prfpdfrom')
   String get startAt;
   @override
   @JsonKey(name: 'prfpdto')
@@ -348,8 +330,6 @@ abstract class _Concert implements Concert {
   String get stage;
   @override
   String get openrun;
-  @override
-  String get area;
   @override
   @JsonKey(ignore: true)
   _$$ConcertImplCopyWith<_$ConcertImpl> get copyWith =>
