@@ -8,7 +8,7 @@ class HomeConcertList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<HomeViewModel>(context);
+    final viewModel = context.watch<HomeViewModel>();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(

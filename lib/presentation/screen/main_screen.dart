@@ -1,5 +1,4 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/data/repository/concert_repository.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
@@ -19,7 +18,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<MainViewModel>(context);
+    final viewModel = context.watch<MainViewModel>();
     return Scaffold(
       appBar: AppBar(
           scrolledUnderElevation: 0,
@@ -29,12 +28,16 @@ class MainScreen extends StatelessWidget {
       body: SafeArea(
           child: Consumer<MainViewModel>(
             builder: (context, main, child) {
-              return _tabs.elementAt(viewModel.selectedTab);
+              return IndexedStack(
+                index: viewModel.selectedTab,
+                children: _tabs,
+              );
+              // return _tabs.elementAt(viewModel.selectedTab);
             },
           )
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => viewModel.moveTab(value),
+        onTap: (value) => context.read<MainViewModel>().moveTab(value),
         currentIndex: viewModel.selectedTab,
         iconSize: 26,
         unselectedFontSize: 14,
