@@ -3,22 +3,30 @@ import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
 import 'package:concert_list_app/presentation/home/home_view_model.dart';
-import 'package:concert_list_app/presentation/screen/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   final List<Widget> _tabs = [
-    HomeTab(),
+    ChangeNotifierProvider(
+        create: (_) => HomeViewModel(),
+        child: HomeTab()
+    ),
     SearchTab(),
     MoreTab()
   ];
 
+  int _selectedTab = 0;
+
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<MainViewModel>();
     return Scaffold(
       appBar: AppBar(
           scrolledUnderElevation: 0,
@@ -26,19 +34,14 @@ class MainScreen extends StatelessWidget {
           centerTitle: true,
           backgroundColor: UiConfig.primaryColor),
       body: SafeArea(
-          child: Consumer<MainViewModel>(
-            builder: (context, main, child) {
-              return IndexedStack(
-                index: viewModel.selectedTab,
-                children: _tabs,
-              );
-              // return _tabs.elementAt(viewModel.selectedTab);
-            },
+          child: IndexedStack(
+            index: _selectedTab,
+            children: _tabs
           )
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => viewModel.moveTab(value),
-        currentIndex: viewModel.selectedTab,
+        onTap: (value) => setState(() {_selectedTab = value;}),
+        currentIndex: _selectedTab,
         iconSize: 26,
         unselectedFontSize: 14,
         selectedLabelStyle: null,

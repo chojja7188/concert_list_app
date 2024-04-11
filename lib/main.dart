@@ -1,9 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/screen/main_screen.dart';
-import 'package:concert_list_app/presentation/screen/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: ChangeNotifierProvider(
-        create: (_) => MainViewModel(),
-          child: MainScreen())
+      home: MainScreen()
     );
   }
 }

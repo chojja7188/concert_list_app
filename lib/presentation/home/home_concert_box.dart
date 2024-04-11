@@ -16,10 +16,10 @@ class _HomeConcertBoxState extends State<HomeConcertBox> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 140,
-      height: 200,
+      height: 400,
       child: Column(
         children: [
-          Image(image: NetworkImage(concert.posterPath), fit: BoxFit.cover),
+          Image(image: NetworkImage(concert.posterPath), fit: BoxFit.cover, height: 200),
           Text('더 글로우 (THE GLOW)'),
           Text('2024.04.13 ~ 2024.04.14', style: TextStyle(fontSize: 10, color: Colors.grey)),
         ],

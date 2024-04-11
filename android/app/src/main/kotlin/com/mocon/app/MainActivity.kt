@@ -1,4 +1,4 @@
-package com.example.concert_list_app
+package com.mocon.app
 
 import io.flutter.embedding.android.FlutterActivity
 
