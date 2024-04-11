@@ -37,7 +37,7 @@ class MainScreen extends StatelessWidget {
           )
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => context.read<MainViewModel>().moveTab(value),
+        onTap: (value) => viewModel.moveTab(value),
         currentIndex: viewModel.selectedTab,
         iconSize: 26,
         unselectedFontSize: 14,
