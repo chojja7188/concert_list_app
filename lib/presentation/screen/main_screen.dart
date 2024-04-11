@@ -2,8 +2,8 @@ import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
-import 'package:concert_list_app/view_model/home_view_model.dart';
-import 'package:concert_list_app/view_model/main_view_model.dart';
+import 'package:concert_list_app/presentation/home/home_view_model.dart';
+import 'package:concert_list_app/presentation/screen/main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
