@@ -11,7 +11,7 @@ class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
 
   final List<Widget> _tabs = [
-    HomeTab(viewModel: HomeViewModel()),
+    HomeTab(),
     SearchTab(),
     MoreTab()
   ];

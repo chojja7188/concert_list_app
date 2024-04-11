@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeTab extends StatefulWidget {
-  final HomeViewModel viewModel;
-  HomeTab({required this.viewModel});
+  final HomeViewModel viewModel = HomeViewModel();
+  HomeTab({super.key});
 
   @override
   State<HomeTab> createState() => _HomeTabState();
