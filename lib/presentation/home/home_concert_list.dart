@@ -27,20 +27,17 @@ class _HomeConcertListState extends State<HomeConcertList> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<HomeViewModel>();
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: viewModel.imminentOnDayConcertList.map(
-                      (e) => HomeConcertBox(concert: e)
-              ).toList()
-            ),
+    return Column(
+      children: [
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: viewModel.imminentOnDayConcertList.map(
+                    (e) => HomeConcertBox(concert: e)
+            ).toList()
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -15,11 +15,15 @@ class HomeTab extends StatelessWidget {
         child: Column(
           children: [
             HomeHeader(),
-            Column(
-              children: [
-                Text('당일 임박 콘서트'),
-                HomeConcertList(),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('당일 임박 콘서트', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                  HomeConcertList(),
+                ],
+              ),
             )
           ],
         ),
