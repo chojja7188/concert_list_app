@@ -6,6 +6,7 @@ import 'package:concert_list_app/service/xml_service.dart';
 import 'package:intl/intl.dart';
 
 abstract interface class ConcertRepository {
+  Future<List<Concert>> getTodayConcertList();
   Future<List<Concert>> getImminentOnDayConcertList();
 }
 
@@ -13,6 +14,24 @@ class ConcertRepositoryImpl implements ConcertRepository {
   final ConcertApi _api;
 
   ConcertRepositoryImpl({ConcertApi? api}) : _api = api ?? ConcertApi();
+
+
+  @override
+  Future<List<Concert>> getTodayConcertList() async {
+    final String nowDate = DateFormat('yyyyMMdd').format(DateTime.now());
+    try {
+      final response = await _api.getTodayConcertList(nowDate);
+      final resultString = XmlService().xmlToJson(response);
+      final List jsonList = jsonDecode(resultString)['dbs']['db'];
+
+      final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
+
+      return concertList;
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
 
   @override
   Future<List<Concert>> getImminentOnDayConcertList() async {

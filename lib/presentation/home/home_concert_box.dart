@@ -9,8 +9,9 @@ class HomeConcertBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: 140,
+      padding: EdgeInsets.only(bottom: 32),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,

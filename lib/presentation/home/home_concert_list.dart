@@ -20,7 +20,7 @@ class HomeConcertList extends StatelessWidget {
       children: [
         Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
         Text(description, style: TextStyle(fontSize: 12)),
-        SizedBox(height: 8),
+        SizedBox(height: 4),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(

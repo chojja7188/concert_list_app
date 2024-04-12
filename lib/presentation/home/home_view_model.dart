@@ -6,10 +6,15 @@ class HomeViewModel with ChangeNotifier {
   ConcertRepository _concertRepository;
   HomeViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
+  List<Concert> _todayConcertList = [];
+  List<Concert> get todayConcertList => List.unmodifiable(_todayConcertList);
   List<Concert> _imminentOnDayConcertList = [];
   List<Concert> get imminentOnDayConcertList => List.unmodifiable(_imminentOnDayConcertList);
-  bool _imminentOnDayConcertListLoading = false;
-  bool get imminentOnDayConcertListLoading => _imminentOnDayConcertListLoading;
+
+  void fetchTodayConcertList() async {
+    _todayConcertList = await _concertRepository.getTodayConcertList();
+    notifyListeners();
+  }
 
   void fetchImminentOnDayConcertList() async {
     _imminentOnDayConcertList = await _concertRepository.getImminentOnDayConcertList();
