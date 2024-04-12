@@ -9,12 +9,14 @@ class HomeConcertBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 140,
-      height: 400,
       child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image(image: NetworkImage(concert.posterPath), fit: BoxFit.cover, height: 200),
-          Text('더 글로우 (THE GLOW)'),
-          Text('2024.04.13 ~ 2024.04.14', style: TextStyle(fontSize: 10, color: Colors.grey)),
+          Image(image: NetworkImage(concert.posterPath), fit: BoxFit.contain, height: 200),
+          Text(concert.name, maxLines: 2, overflow: TextOverflow.ellipsis),
+          Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 10, color: Colors.grey)),
         ],
       ),
     );

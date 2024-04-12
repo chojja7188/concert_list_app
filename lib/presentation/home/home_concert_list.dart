@@ -16,9 +16,13 @@ class HomeConcertList extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: concertList.map(
-                    (e) => HomeConcertBox(concert: e)
-            ).toList()
+                    (e) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: HomeConcertBox(concert: e),
+                    )
+            ).toList(),
           ),
         ),
       ],
