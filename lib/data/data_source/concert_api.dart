@@ -9,10 +9,9 @@ class ConcertApi {
   ConcertApi({http.Client? client}) : _client = client ?? http.Client();
 
   // 당일 임박 콘서트 리스트
-  //TODO: 장르 정하기
   Future<http.Response> getImminentOnDayConcertList(String startDate, String endDate) async {
     final response = await _client.get(Uri.parse(
-        '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=1&rows=10&shcate=CCCD'
+        '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=1&rows=10&shcate=CCCD&prfstate=01'
     )).onError((error, stackTrace) => throw Exception('Error: $error'));
 
     return response;

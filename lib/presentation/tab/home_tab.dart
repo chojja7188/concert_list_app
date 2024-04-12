@@ -39,8 +39,10 @@ class _HomeTabState extends State<HomeTab> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('당일 임박 공연', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-                  HomeConcertList(concertList: viewModel.imminentOnDayConcertList),
+                  HomeConcertList(
+                    title: '공연 예정일 임박 공연',
+                    description: '공연 예정일이 3일 이내인 공연입니다.',
+                    concertList: viewModel.imminentOnDayConcertList,),
                 ],
               ),
             )

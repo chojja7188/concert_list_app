@@ -17,7 +17,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
   @override
   Future<List<Concert>> getImminentOnDayConcertList() async {
     final DateTime nowDate = DateTime.now();
-    final String startDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year, nowDate.month, nowDate.day + 1));
+    final String startDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year, nowDate.month, nowDate.day));
     final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year, nowDate.month, nowDate.day + 3));
 
     try {
