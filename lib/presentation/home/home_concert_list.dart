@@ -1,38 +1,22 @@
+import 'package:concert_list_app/data/model/concert.dart';
 import 'package:concert_list_app/presentation/home/home_concert_box.dart';
 import 'package:concert_list_app/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class HomeConcertList extends StatefulWidget {
-  const HomeConcertList({super.key});
+class HomeConcertList extends StatelessWidget {
+  final List<Concert> concertList;
 
-  @override
-  State<HomeConcertList> createState() => _HomeConcertListState();
-}
-
-class _HomeConcertListState extends State<HomeConcertList> {
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(() => {
-      context.read<HomeViewModel>().fetchImminentOnDayConcertList()
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  const HomeConcertList({super.key, required this.concertList});
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<HomeViewModel>();
     return Column(
       children: [
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: viewModel.imminentOnDayConcertList.map(
+            children: concertList.map(
                     (e) => HomeConcertBox(concert: e)
             ).toList()
           ),

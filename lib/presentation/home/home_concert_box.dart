@@ -1,16 +1,9 @@
 import 'package:concert_list_app/data/model/concert.dart';
 import 'package:flutter/material.dart';
 
-class HomeConcertBox extends StatefulWidget {
+class HomeConcertBox extends StatelessWidget {
   final Concert concert;
   const HomeConcertBox({super.key, required this.concert});
-
-  @override
-  State<HomeConcertBox> createState() => _HomeConcertBoxState();
-}
-
-class _HomeConcertBoxState extends State<HomeConcertBox> {
-  Concert get concert => widget.concert;
 
   @override
   Widget build(BuildContext context) {
