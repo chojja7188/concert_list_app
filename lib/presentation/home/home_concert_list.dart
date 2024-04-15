@@ -18,9 +18,10 @@ class HomeConcertList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
-        Text(description, style: TextStyle(fontSize: 12)),
+        Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
         SizedBox(height: 4),
+        Text(description, style: TextStyle(fontSize: 12)),
+        SizedBox(height: 16),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(

@@ -10,7 +10,7 @@ class SearchHeader extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),
         child: Text('검색',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)
         ),
       ),
     );

@@ -32,6 +32,7 @@ class SearchInput extends StatelessWidget {
                       )
                   ),
                   hintText: '검색어를 입력하세요',
+                  hintStyle: TextStyle(fontSize: 14),
                   contentPadding: EdgeInsets.only(top: 8, right: 8, bottom: 8, left: 16),
                   suffixIcon: IconButton(
                       onPressed: () => viewModel.fetchSearchConcertList(context),

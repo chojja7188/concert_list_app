@@ -13,9 +13,9 @@ class HomeHeader extends StatelessWidget {
           child: Row(
             children: [
               Text('모든 대중 음악 콘서트,',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
               ),
-              Image.asset('assets/images/mocon_logo_dark.png', width: 100)
+              Image.asset('assets/images/mocon_logo_dark.png', width: 80)
             ],
           ),
         ),

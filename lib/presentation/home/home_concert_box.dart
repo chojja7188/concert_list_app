@@ -19,7 +19,7 @@ class HomeConcertBox extends StatelessWidget {
         children: [
           Image.network(
             concert.posterPath,
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
             height: 200,
             loadingBuilder: (context, child, progress) {
                 if (progress == null) {
@@ -35,7 +35,8 @@ class HomeConcertBox extends StatelessWidget {
                 );
             },
           ),
-          Text(concert.name, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),),
+          SizedBox(height: 4),
+          Text(concert.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),),
           Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 10, color: Colors.grey)),
         ],
       ),

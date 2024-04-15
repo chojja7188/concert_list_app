@@ -57,7 +57,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
   Future<List<Concert>> getSearchConcertList({required String query, required int page}) async {
     final DateTime nowDate = DateTime.now();
     final String startDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year - 5, nowDate.month, nowDate.day));
-    final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year + 5, nowDate.month, nowDate.day));
+    final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year + 1, nowDate.month, nowDate.day));
 
     try {
       final response = await _api.getSearchConcertList(query, page, startDate, endDate);

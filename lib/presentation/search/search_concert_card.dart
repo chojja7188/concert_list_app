@@ -38,23 +38,29 @@ class SearchConcertCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 4),
                   _buildStateBox(concert.state),
+                  SizedBox(height: 4),
+                  Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                  SizedBox(height: 4),
                   Text(concert.name,
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       overflow: TextOverflow.ellipsis, maxLines: 2
                   ),
                   Text('장소 : ${concert.stage}', overflow: TextOverflow.ellipsis, maxLines: 2,),
-                  Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 12, color: Colors.grey)),
                 ],
               ),
             )
           ],
         ),
         Positioned(
-          bottom: 0,
+            top: 0,
             right: 0,
-            child: Icon(Icons.chevron_right)
+            child: Row(
+              children: [
+                Text('더보기', style: TextStyle(fontSize: 12, color: Color(0xff424242))),
+                Icon(Icons.chevron_right),
+              ],
+            )
         )
       ],
     );
@@ -67,19 +73,19 @@ Widget _buildStateBox(String state) {
         padding: EdgeInsets.only(left: 8, right: 8, top: 3, bottom: 4),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: UiConfig.primaryColor, width: 1),
+            border: Border.all(color: Color(0xffcacaca), width: 1),
             color: Colors.white
         ),
-        child: Text(state, style: TextStyle(color: UiConfig.primaryColor, fontSize: 12),)
+        child: Text(state, style: TextStyle(color: Color(0xffcacaca), fontSize: 10, fontWeight: FontWeight.bold),)
     );
   } else {
     return Container(
         padding: EdgeInsets.only(left: 8, right: 8, top: 3, bottom: 4),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: UiConfig.primaryColor
+            color: Color(0xff282828)
         ),
-        child: Text(state, style: TextStyle(color: Colors.white, fontSize: 12),)
+        child: Text(state, style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),)
     );
   }
 }
