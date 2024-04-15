@@ -33,7 +33,7 @@ class _HomeTabState extends State<HomeTab> {
         child: Column(
           children: [
             HomeHeader(),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(

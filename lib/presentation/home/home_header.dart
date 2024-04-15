@@ -9,7 +9,7 @@ class HomeHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),
           child: Row(
             children: [
               Text('모든 대중 음악 콘서트,',

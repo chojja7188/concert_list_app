@@ -13,7 +13,7 @@ class SearchInput extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.only(left: 16, right: 16),
             child: TextField(
               controller: viewModel.searchController,
                 decoration: InputDecoration(

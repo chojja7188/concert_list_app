@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
           scrolledUnderElevation: 0,
-          title: Image.asset('assets/images/mocon_logo_light.png', width: 140),
+          title: Image.asset('assets/images/mocon_logo_light.png', width: 100),
           centerTitle: true,
           backgroundColor: UiConfig.primaryColor),
       body: SafeArea(

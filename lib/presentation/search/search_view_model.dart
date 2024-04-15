@@ -14,6 +14,7 @@ class SearchViewModel with ChangeNotifier {
 
   int _currentPage = 1;
   String _query = '';
+  String get query => _query;
 
   void fetchSearchConcertList(BuildContext context) async {
     _query = 'shprfnm=${searchController.text}';
