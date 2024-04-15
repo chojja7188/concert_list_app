@@ -16,8 +16,10 @@ class SearchConcertList extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: viewModel.query.isEmpty
           ? Center(child: Text('검색어를 입력하세요', style: TextStyle(color: UiConfig.primaryColor),))
-          : Column(
-        children: viewModel.searchConcertList
+          : ListView(
+        physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          children: viewModel.searchConcertList
             .map((e) => Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: SearchConcertCard(concert: e),

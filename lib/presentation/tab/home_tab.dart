@@ -35,7 +35,7 @@ class _HomeTabState extends State<HomeTab> {
             HomeHeader(),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

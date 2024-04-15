@@ -35,7 +35,7 @@ class HomeConcertBox extends StatelessWidget {
                 );
             },
           ),
-          Text(concert.name, maxLines: 2, overflow: TextOverflow.ellipsis),
+          Text(concert.name, maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),),
           Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 10, color: Colors.grey)),
         ],
       ),

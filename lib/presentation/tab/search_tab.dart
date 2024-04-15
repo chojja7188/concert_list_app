@@ -13,15 +13,11 @@ class SearchTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Stack(
+      child: Column(
         children: [
-          Column(
-            children: [
-              SearchHeader(),
-              SearchInput(),
-              SearchConcertList(),
-            ],
-          ),
+          SearchHeader(),
+          SearchInput(),
+          SearchConcertList(),
         ],
       ),
     );
