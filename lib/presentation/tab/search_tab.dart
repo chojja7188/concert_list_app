@@ -1,3 +1,6 @@
+import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/presentation/search/search_header.dart';
+import 'package:concert_list_app/presentation/search/search_input.dart';
 import 'package:flutter/material.dart';
 
 class SearchTab extends StatelessWidget {
@@ -5,24 +8,11 @@ class SearchTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 10),
-      child: Row(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: TextField(
-                  decoration: InputDecoration(border: OutlineInputBorder(), contentPadding: EdgeInsets.all(8)),
-                  onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus()
-              ),
-            ),
-          ),
-          SizedBox(
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.search, size: 40,))
-          )
-        ],
-      )
+    return Column(
+      children: [
+        SearchHeader(),
+        SearchInput(),
+      ],
     );
   }
 }
