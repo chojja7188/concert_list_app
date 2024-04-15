@@ -1,4 +1,5 @@
 import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/presentation/search/search_view_model.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
@@ -19,7 +20,10 @@ class _MainScreenState extends State<MainScreen> {
         create: (_) => HomeViewModel(),
         child: HomeTab()
     ),
-    SearchTab(),
+    ChangeNotifierProvider(
+        create: (_) => SearchViewModel(),
+        child: SearchTab()
+    ),
     MoreTab()
   ];
 

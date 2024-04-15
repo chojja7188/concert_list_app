@@ -8,13 +8,13 @@ import 'package:intl/intl.dart';
 abstract interface class ConcertRepository {
   Future<List<Concert>> getTodayConcertList();
   Future<List<Concert>> getImminentOnDayConcertList();
+  Future<List<Concert>> getSearchConcertList({required String query, required int page});
 }
 
 class ConcertRepositoryImpl implements ConcertRepository {
   final ConcertApi _api;
 
   ConcertRepositoryImpl({ConcertApi? api}) : _api = api ?? ConcertApi();
-
 
   @override
   Future<List<Concert>> getTodayConcertList() async {
@@ -41,6 +41,26 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
     try {
       final response = await _api.getImminentOnDayConcertList(startDate, endDate);
+      final resultString = XmlService().xmlToJson(response);
+      final List jsonList = jsonDecode(resultString)['dbs']['db'];
+
+      final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
+
+      return concertList;
+    } catch (e) {
+      print(e);
+      return [];
+    }
+  }
+
+  @override
+  Future<List<Concert>> getSearchConcertList({required String query, required int page}) async {
+    final DateTime nowDate = DateTime.now();
+    final String startDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year - 5, nowDate.month, nowDate.day));
+    final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year + 5, nowDate.month, nowDate.day));
+
+    try {
+      final response = await _api.getSearchConcertList(query, page, startDate, endDate);
       final resultString = XmlService().xmlToJson(response);
       final List jsonList = jsonDecode(resultString)['dbs']['db'];
 

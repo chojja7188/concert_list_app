@@ -17,8 +17,7 @@ class _HomeTabState extends State<HomeTab> {
   void initState() {
     super.initState();
     Future.microtask(() => {
-      context.read<HomeViewModel>().fetchTodayConcertList(),
-      context.read<HomeViewModel>().fetchImminentOnDayConcertList()
+      context.read<HomeViewModel>().fetchHomeConcertList(context)
     });
   }
 

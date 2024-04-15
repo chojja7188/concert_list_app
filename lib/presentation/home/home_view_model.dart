@@ -1,6 +1,8 @@
+import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/data/model/concert.dart';
 import 'package:concert_list_app/data/repository/concert_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HomeViewModel with ChangeNotifier {
   ConcertRepository _concertRepository;
@@ -11,19 +13,22 @@ class HomeViewModel with ChangeNotifier {
   List<Concert> _imminentOnDayConcertList = [];
   List<Concert> get imminentOnDayConcertList => List.unmodifiable(_imminentOnDayConcertList);
 
-  void fetchTodayConcertList() async {
+  void fetchHomeConcertList(BuildContext context) async {
+    showDialog(barrierDismissible: false, context: context, builder: (context) {
+      return SpinKitWaveSpinner(color: UiConfig.primaryColor);
+    });
+    await fetchTodayConcertList();
+    await fetchImminentOnDayConcertList();
+    Navigator.pop(context);
+  }
+
+  Future<void> fetchTodayConcertList() async {
     _todayConcertList = await _concertRepository.getTodayConcertList();
     notifyListeners();
   }
 
-  void fetchImminentOnDayConcertList() async {
+  Future<void> fetchImminentOnDayConcertList() async {
     _imminentOnDayConcertList = await _concertRepository.getImminentOnDayConcertList();
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    print('디스포즈 됩니다!');
-    super.dispose();
   }
 }

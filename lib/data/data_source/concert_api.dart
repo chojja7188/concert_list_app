@@ -26,6 +26,14 @@ class ConcertApi {
     return response;
   }
 
+  Future<http.Response> getSearchConcertList(String query, int page, String startDate, String endDate) async {
+    final response = await _client.get(Uri.parse(
+        '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=$page&rows=10&shcate=CCCD&$query'
+    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+
+    return response;
+  }
+
   Future getConcertList() async {
     final response = await _client.get(Uri.parse('$_baseUrl/pblprfr?service=$_apiKey&newSql=Y'))
         .onError((error, stackTrace) => throw Exception('Error: $error'));
