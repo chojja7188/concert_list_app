@@ -15,7 +15,7 @@ _$ConcertDetailImpl _$$ConcertDetailImplFromJson(Map<String, dynamic> json) =>
       endAt: json['prfpdto'] as String,
       stage: json['fcltynm'] as String,
       performer: json['prfcast'] as String? ?? '',
-      runtime: json['prfruntime'] as String,
+      runtime: json['prfruntime'] as String? ?? '',
       ageLimit: json['prfage'] as String,
       price: json['pcseguidance'] as String,
       posterPath: json['poster'] as String,

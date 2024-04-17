@@ -22,7 +22,7 @@ class ConcertDetail with _$ConcertDetail {
     @JsonKey(name: 'prfcast')
     @Default('') String performer,
     @JsonKey(name: 'prfruntime')
-    required String runtime,
+    @Default('') String runtime,
     @JsonKey(name: 'prfage')
     required String ageLimit,
     @JsonKey(name: 'pcseguidance')
