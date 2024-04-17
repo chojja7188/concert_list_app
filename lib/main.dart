@@ -1,6 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/presentation/screen/main_screen.dart';
+import 'package:concert_list_app/presentation/main/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:concert_list_app/config/go_router_config.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: UiConfig.primaryColor,
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: MainScreen()
+      routerConfig: GoRouterConfig().routerConfig
     );
   }
 }

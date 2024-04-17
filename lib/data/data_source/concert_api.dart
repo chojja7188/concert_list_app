@@ -34,6 +34,14 @@ class ConcertApi {
     return response;
   }
 
+  Future<http.Response> getConcertDetail({required String id}) async {
+    final response = await _client.get(Uri.parse(
+        '$_baseUrl/pblprfr/$id?service=$_apiKey&newSql=Y'
+    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+
+    return response;
+  }
+
   Future getConcertList() async {
     final response = await _client.get(Uri.parse('$_baseUrl/pblprfr?service=$_apiKey&newSql=Y'))
         .onError((error, stackTrace) => throw Exception('Error: $error'));

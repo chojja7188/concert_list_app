@@ -2,14 +2,10 @@ import 'dart:convert';
 
 import 'package:concert_list_app/data/data_source/concert_api.dart';
 import 'package:concert_list_app/data/model/concert.dart';
-import 'package:concert_list_app/service/xml_service.dart';
+import 'package:concert_list_app/data/model/concert_detail.dart';
+import 'package:concert_list_app/domain/repository/concert_repository.dart';
+import 'package:concert_list_app/domain/service/xml_service.dart';
 import 'package:intl/intl.dart';
-
-abstract interface class ConcertRepository {
-  Future<List<Concert>> getTodayConcertList();
-  Future<List<Concert>> getImminentOnDayConcertList();
-  Future<List<Concert>> getSearchConcertList({required String query, required int page});
-}
 
 class ConcertRepositoryImpl implements ConcertRepository {
   final ConcertApi _api;
@@ -27,7 +23,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
 
       return concertList;
-    } catch (e) {
+    } catch(e) {
       print(e);
       return [];
     }
@@ -47,7 +43,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
 
       return concertList;
-    } catch (e) {
+    } catch(e) {
       print(e);
       return [];
     }
@@ -67,9 +63,42 @@ class ConcertRepositoryImpl implements ConcertRepository {
       final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
 
       return concertList;
-    } catch (e) {
+    } catch(e) {
       print(e);
       return [];
+    }
+  }
+
+  @override
+   Future<ConcertDetail> getConcertDetail({required String id}) async {
+    try {
+      final response = await _api.getConcertDetail(id: id);
+      final resultString = XmlService().xmlToJson(response);
+      final json = jsonDecode(resultString)['dbs']['db'];
+
+      final concertDetail = ConcertDetail.fromJson(json);
+      
+      return concertDetail;
+    } catch(e, s) {
+      print(e);
+      print(s);
+
+      return ConcertDetail(
+          id: '',
+          stageId: '',
+          name: '',
+          startAt: '',
+          endAt: '',
+          stage: '',
+          performer: '',
+          runtime: '',
+          ageLimit: '',
+          price: '',
+          posterPath: '',
+          genre: '',
+          state: '',
+          openrun: '',
+      );
     }
   }
 }

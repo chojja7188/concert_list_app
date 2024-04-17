@@ -1,6 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/data/model/concert.dart';
-import 'package:concert_list_app/data/repository/concert_repository.dart';
+import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
+import 'package:concert_list_app/domain/repository/concert_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 

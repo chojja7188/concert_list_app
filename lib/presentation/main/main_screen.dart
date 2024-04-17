@@ -1,4 +1,6 @@
 import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/data/data_source/concert_api.dart';
+import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
 import 'package:concert_list_app/presentation/search/search_view_model.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
@@ -17,11 +19,19 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _tabs = [
     ChangeNotifierProvider(
-        create: (_) => HomeViewModel(),
+        create: (_) => HomeViewModel(
+          repository: ConcertRepositoryImpl(
+            api: ConcertApi()
+          )
+        ),
         child: HomeTab()
     ),
     ChangeNotifierProvider(
-        create: (_) => SearchViewModel(),
+        create: (_) => SearchViewModel(
+          repository: ConcertRepositoryImpl(
+            api: ConcertApi()
+          )
+        ),
         child: SearchTab()
     ),
     MoreTab()
