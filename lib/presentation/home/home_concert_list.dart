@@ -1,5 +1,5 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/data/model/concert.dart';
+import 'package:concert_list_app/domain/model/concert.dart';
 import 'package:concert_list_app/presentation/home/home_concert_box.dart';
 import 'package:concert_list_app/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';

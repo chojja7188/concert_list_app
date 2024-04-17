@@ -20,21 +20,13 @@ Concert _$ConcertFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Concert {
-  @JsonKey(name: 'mt20id')
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfnm')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'genrenm')
   String get genre => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfstate')
   String get state => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfpdfrom')
   String get startAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfpdto')
   String get endAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'poster')
   String get posterPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'fcltynm')
   String get stage => throw _privateConstructorUsedError;
   String get openrun => throw _privateConstructorUsedError;
 
@@ -49,14 +41,14 @@ abstract class $ConcertCopyWith<$Res> {
       _$ConcertCopyWithImpl<$Res, Concert>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'mt20id') String id,
-      @JsonKey(name: 'prfnm') String name,
-      @JsonKey(name: 'genrenm') String genre,
-      @JsonKey(name: 'prfstate') String state,
-      @JsonKey(name: 'prfpdfrom') String startAt,
-      @JsonKey(name: 'prfpdto') String endAt,
-      @JsonKey(name: 'poster') String posterPath,
-      @JsonKey(name: 'fcltynm') String stage,
+      {String id,
+      String name,
+      String genre,
+      String state,
+      String startAt,
+      String endAt,
+      String posterPath,
+      String stage,
       String openrun});
 }
 
@@ -132,14 +124,14 @@ abstract class _$$ConcertImplCopyWith<$Res> implements $ConcertCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'mt20id') String id,
-      @JsonKey(name: 'prfnm') String name,
-      @JsonKey(name: 'genrenm') String genre,
-      @JsonKey(name: 'prfstate') String state,
-      @JsonKey(name: 'prfpdfrom') String startAt,
-      @JsonKey(name: 'prfpdto') String endAt,
-      @JsonKey(name: 'poster') String posterPath,
-      @JsonKey(name: 'fcltynm') String stage,
+      {String id,
+      String name,
+      String genre,
+      String state,
+      String startAt,
+      String endAt,
+      String posterPath,
+      String stage,
       String openrun});
 }
 
@@ -209,42 +201,34 @@ class __$$ConcertImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConcertImpl implements _Concert {
   const _$ConcertImpl(
-      {@JsonKey(name: 'mt20id') required this.id,
-      @JsonKey(name: 'prfnm') required this.name,
-      @JsonKey(name: 'genrenm') required this.genre,
-      @JsonKey(name: 'prfstate') required this.state,
-      @JsonKey(name: 'prfpdfrom') required this.startAt,
-      @JsonKey(name: 'prfpdto') required this.endAt,
-      @JsonKey(name: 'poster') required this.posterPath,
-      @JsonKey(name: 'fcltynm') required this.stage,
+      {required this.id,
+      required this.name,
+      required this.genre,
+      required this.state,
+      required this.startAt,
+      required this.endAt,
+      required this.posterPath,
+      required this.stage,
       required this.openrun});
 
   factory _$ConcertImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConcertImplFromJson(json);
 
   @override
-  @JsonKey(name: 'mt20id')
   final String id;
   @override
-  @JsonKey(name: 'prfnm')
   final String name;
   @override
-  @JsonKey(name: 'genrenm')
   final String genre;
   @override
-  @JsonKey(name: 'prfstate')
   final String state;
   @override
-  @JsonKey(name: 'prfpdfrom')
   final String startAt;
   @override
-  @JsonKey(name: 'prfpdto')
   final String endAt;
   @override
-  @JsonKey(name: 'poster')
   final String posterPath;
   @override
-  @JsonKey(name: 'fcltynm')
   final String stage;
   @override
   final String openrun;
@@ -292,41 +276,33 @@ class _$ConcertImpl implements _Concert {
 
 abstract class _Concert implements Concert {
   const factory _Concert(
-      {@JsonKey(name: 'mt20id') required final String id,
-      @JsonKey(name: 'prfnm') required final String name,
-      @JsonKey(name: 'genrenm') required final String genre,
-      @JsonKey(name: 'prfstate') required final String state,
-      @JsonKey(name: 'prfpdfrom') required final String startAt,
-      @JsonKey(name: 'prfpdto') required final String endAt,
-      @JsonKey(name: 'poster') required final String posterPath,
-      @JsonKey(name: 'fcltynm') required final String stage,
+      {required final String id,
+      required final String name,
+      required final String genre,
+      required final String state,
+      required final String startAt,
+      required final String endAt,
+      required final String posterPath,
+      required final String stage,
       required final String openrun}) = _$ConcertImpl;
 
   factory _Concert.fromJson(Map<String, dynamic> json) = _$ConcertImpl.fromJson;
 
   @override
-  @JsonKey(name: 'mt20id')
   String get id;
   @override
-  @JsonKey(name: 'prfnm')
   String get name;
   @override
-  @JsonKey(name: 'genrenm')
   String get genre;
   @override
-  @JsonKey(name: 'prfstate')
   String get state;
   @override
-  @JsonKey(name: 'prfpdfrom')
   String get startAt;
   @override
-  @JsonKey(name: 'prfpdto')
   String get endAt;
   @override
-  @JsonKey(name: 'poster')
   String get posterPath;
   @override
-  @JsonKey(name: 'fcltynm')
   String get stage;
   @override
   String get openrun;

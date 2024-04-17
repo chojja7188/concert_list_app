@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import 'package:concert_list_app/data/data_source/concert_api.dart';
-import 'package:concert_list_app/data/model/concert.dart';
-import 'package:concert_list_app/data/model/concert_detail.dart';
+import 'package:concert_list_app/data/mapper/concert_detail_mapper.dart';
+import 'package:concert_list_app/data/mapper/concert_mapper.dart';
+import 'package:concert_list_app/domain/model/concert.dart';
+import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
 import 'package:concert_list_app/domain/service/xml_service.dart';
 import 'package:intl/intl.dart';
@@ -16,11 +18,9 @@ class ConcertRepositoryImpl implements ConcertRepository {
   Future<List<Concert>> getTodayConcertList() async {
     final String nowDate = DateFormat('yyyyMMdd').format(DateTime.now());
     try {
-      final response = await _api.getTodayConcertList(nowDate);
-      final resultString = XmlService().xmlToJson(response);
-      final List jsonList = jsonDecode(resultString)['dbs']['db'];
+      final dtoList = await _api.getTodayConcertList(nowDate);
 
-      final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
+      final concertList = dtoList.map((e) => e.toConcert()).toList();
 
       return concertList;
     } catch(e) {
@@ -34,13 +34,10 @@ class ConcertRepositoryImpl implements ConcertRepository {
     final DateTime nowDate = DateTime.now();
     final String startDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year, nowDate.month, nowDate.day));
     final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year, nowDate.month, nowDate.day + 3));
-
     try {
-      final response = await _api.getImminentOnDayConcertList(startDate, endDate);
-      final resultString = XmlService().xmlToJson(response);
-      final List jsonList = jsonDecode(resultString)['dbs']['db'];
+      final dtoList = await _api.getImminentOnDayConcertList(startDate, endDate);
 
-      final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
+      final concertList = dtoList.map((e) => e.toConcert()).toList();
 
       return concertList;
     } catch(e) {
@@ -56,11 +53,9 @@ class ConcertRepositoryImpl implements ConcertRepository {
     final String endDate = DateFormat('yyyyMMdd').format(DateTime(nowDate.year + 1, nowDate.month, nowDate.day));
 
     try {
-      final response = await _api.getSearchConcertList(query, page, startDate, endDate);
-      final resultString = XmlService().xmlToJson(response);
-      final List jsonList = jsonDecode(resultString)['dbs']['db'];
+      final dtoList = await _api.getSearchConcertList(query, page, startDate, endDate);
 
-      final concertList = jsonList.map((e) => Concert.fromJson(e)).toList();
+      final concertList = dtoList.map((e) => e.toConcert()).toList();
 
       return concertList;
     } catch(e) {
@@ -72,17 +67,13 @@ class ConcertRepositoryImpl implements ConcertRepository {
   @override
    Future<ConcertDetail> getConcertDetail({required String id}) async {
     try {
-      final response = await _api.getConcertDetail(id: id);
-      final resultString = XmlService().xmlToJson(response);
-      final json = jsonDecode(resultString)['dbs']['db'];
+      final dto = await _api.getConcertDetail(id: id);
 
-      final concertDetail = ConcertDetail.fromJson(json);
-      
+      final concertDetail = dto.toConcertDetail();
+
       return concertDetail;
-    } catch(e, s) {
+    } catch(e) {
       print(e);
-      print(s);
-
       return ConcertDetail(
           id: '',
           stageId: '',
