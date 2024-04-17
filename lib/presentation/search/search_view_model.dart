@@ -2,6 +2,7 @@ import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/data/model/concert.dart';
 import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
+import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -18,6 +19,10 @@ class SearchViewModel with ChangeNotifier {
   String get query => _query;
 
   void fetchSearchConcertList(BuildContext context) async {
+    if (searchController.text.isEmpty) {
+      ToastService().showToast('검색어를 입력하세요');
+      return;
+    }
     _query = 'shprfnm=${searchController.text}';
     showDialog(barrierDismissible: false, context: context, builder: (context) {
       return SpinKitWaveSpinner(color: UiConfig.primaryColor);
