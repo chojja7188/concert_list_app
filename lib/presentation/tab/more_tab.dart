@@ -12,7 +12,7 @@ class MoreTab extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MoreMenu(title: '개인정보',),
+          MoreMenu(title: '개인정보처리방침',),
           Text('본 서비스는 KOPIS OPEN API를 사용하고 있습니다.',
           style: TextStyle(color: UiConfig.primaryColor),
           ),

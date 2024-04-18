@@ -45,6 +45,7 @@ class ConcertDetailContent extends StatelessWidget {
           SizedBox(height: 8),
           SizedBox(height: 16),
           Text('상세 정보', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+          SizedBox(height: 8),
           Container(
             padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
             decoration: BoxDecoration(
@@ -75,9 +76,9 @@ class ConcertDetailContent extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 8),
+          SizedBox(height: 16),
           _buildInfoImages(concertDetail.infoImages),
-          SizedBox(height: 40),
+          SizedBox(height: 80),
         ],
       ),
     );
