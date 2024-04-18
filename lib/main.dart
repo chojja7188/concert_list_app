@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: '모콘 MoCon - 모든 콘서트',
       theme: ThemeData(
         primaryColor: UiConfig.primaryColor,
         colorScheme: ColorScheme.fromSeed(

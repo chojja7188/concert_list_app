@@ -6,12 +6,15 @@ class MoreMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1, color: Colors.grey))
-      ),
-      child: Text(title),
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(top: 16, bottom: 16),
+          width: double.infinity,
+          child: Text(title),
+        ),
+        Divider(height: 1, color: Colors.grey.withOpacity(0.3),)
+      ],
     );
   }
 }
