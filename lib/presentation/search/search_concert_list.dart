@@ -15,7 +15,7 @@ class SearchConcertList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: viewModel.query.isEmpty
-          ? Center(child: Text('검색어를 입력하세요', style: TextStyle(color: UiConfig.primaryColor),))
+          ? const Center(child: Text('검색어를 입력하세요', style: TextStyle(color: UiConfig.primaryColor),))
           : _buildListView(viewModel)
     );
   }
@@ -23,7 +23,7 @@ class SearchConcertList extends StatelessWidget {
 
 Widget _buildListView(SearchViewModel viewModel) {
   return viewModel.searchConcertList.isEmpty
-      ? Center(
+      ? const Center(
       child: Column(
         children: [
           Text('검색 결과가 없습니다', style: TextStyle(color: UiConfig.primaryColor),),
@@ -31,7 +31,7 @@ Widget _buildListView(SearchViewModel viewModel) {
         ],
       ))
       : ListView(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       children: viewModel.searchConcertList
           .map((e) => Padding(

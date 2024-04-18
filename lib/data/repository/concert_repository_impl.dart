@@ -8,7 +8,6 @@ import 'package:concert_list_app/domain/model/concert.dart';
 import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/model/stage_detail.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
-import 'package:concert_list_app/domain/service/xml_service.dart';
 import 'package:intl/intl.dart';
 
 class ConcertRepositoryImpl implements ConcertRepository {
@@ -83,7 +82,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return concertDetail;
     } catch (e) {
       print(e);
-      return ConcertDetail(
+      return const ConcertDetail(
         id: '',
         stageId: '',
         name: '',
@@ -114,7 +113,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return stageDetail;
     } catch (e) {
       print(e);
-      return StageDetail(
+      return const StageDetail(
           id: '',
           address: ''
       );

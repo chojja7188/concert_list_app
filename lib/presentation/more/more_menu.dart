@@ -9,7 +9,7 @@ class MoreMenu extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 16, bottom: 16),
+          padding: const EdgeInsets.only(top: 16, bottom: 16),
           width: double.infinity,
           child: Text(title),
         ),

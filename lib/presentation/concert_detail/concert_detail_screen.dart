@@ -33,7 +33,7 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.white,), onPressed: () {
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios, color: Colors.white,), onPressed: () {
           context.pop();
         }),
         backgroundColor: UiConfig.primaryColor,
@@ -53,7 +53,7 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
                     if (progress == null) {
                       return child;
                     }
-                    return SizedBox(
+                    return const SizedBox(
                       height: 200,
                       child: Center(
                         child: SpinKitWaveSpinner(
@@ -77,7 +77,7 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
           onPressed: () {
             viewModel.launchWeb(viewModel.concertDetail.id, context);
           },
-          child: Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+          child: const Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -9,10 +9,10 @@ class HomeHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),
           child: Row(
             children: [
-              Text('모든 대중 음악 콘서트,',
+              const Text('모든 대중 음악 콘서트,',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)
               ),
               Image.asset('assets/images/mocon_logo_dark.png', width: 80)

@@ -33,7 +33,7 @@ class SearchConcertCard extends StatelessWidget {
                     if (progress == null) {
                       return child;
                     }
-                    return SizedBox(
+                    return const SizedBox(
                       height: 200,
                       child: Center(
                         child: SpinKitWaveSpinner(
@@ -44,17 +44,17 @@ class SearchConcertCard extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     StateBadge(state: concert.state),
-                    SizedBox(height: 4),
-                    Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 12, color: Colors.grey)),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
+                    Text('${concert.startAt} ~ ${concert.endAt}', style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                    const SizedBox(height: 4),
                     Text(concert.name,
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                         overflow: TextOverflow.ellipsis, maxLines: 2
                     ),
                     Text('장소 : ${concert.stage}', overflow: TextOverflow.ellipsis, maxLines: 2,),
@@ -63,7 +63,7 @@ class SearchConcertCard extends StatelessWidget {
               )
             ],
           ),
-          Positioned(
+          const Positioned(
               top: 0,
               right: 0,
               child: Row(

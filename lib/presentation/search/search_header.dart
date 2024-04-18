@@ -5,7 +5,7 @@ class SearchHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return const Align(
       alignment: Alignment.topLeft,
       child: Padding(
         padding: EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 8),

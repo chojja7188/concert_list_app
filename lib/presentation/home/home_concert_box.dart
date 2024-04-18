@@ -16,7 +16,7 @@ class HomeConcertBox extends StatelessWidget {
             Uri(path: '/concertDetail', queryParameters: {'id': concert.id, 'posterPath': concert.posterPath}).toString()
         );
       },
-      child: Container(
+      child: SizedBox(
         width: 140,
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -33,7 +33,7 @@ class HomeConcertBox extends StatelessWidget {
                     if (progress == null) {
                       return child;
                     }
-                    return SizedBox(
+                    return const SizedBox(
                       height: 200,
                       child: Center(
                         child: SpinKitWaveSpinner(
@@ -44,9 +44,9 @@ class HomeConcertBox extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 4),
-            Text(concert.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),),
-            Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 10, color: Colors.grey)),
+            const SizedBox(height: 4),
+            Text(concert.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold),),
+            Text('${concert.startAt} ~ ${concert.endAt}', style: const TextStyle(fontSize: 10, color: Colors.grey)),
           ],
         ),
       ),

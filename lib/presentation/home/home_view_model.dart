@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HomeViewModel with ChangeNotifier {
-  ConcertRepository _concertRepository;
+  final ConcertRepository _concertRepository;
   HomeViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
   List<Concert> _todayConcertList = [];
@@ -16,7 +16,7 @@ class HomeViewModel with ChangeNotifier {
 
   void fetchHomeConcertList(BuildContext context) async {
     showDialog(barrierDismissible: false, context: context, builder: (context) {
-      return SpinKitWaveSpinner(color: UiConfig.primaryColor);
+      return const SpinKitWaveSpinner(color: UiConfig.primaryColor);
     });
     await fetchTodayConcertList();
     await fetchImminentOnDayConcertList();

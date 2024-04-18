@@ -13,30 +13,30 @@ class SearchInput extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16),
             child: TextField(
               controller: viewModel.searchController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 1.4,
                           color: UiConfig.primaryColor
                       )
                   ),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           width: 2,
                           color: UiConfig.primaryColor
                       )
                   ),
                   hintText: '검색어를 입력하세요',
-                  hintStyle: TextStyle(fontSize: 14),
-                  contentPadding: EdgeInsets.only(top: 8, right: 8, bottom: 8, left: 16),
+                  hintStyle: const TextStyle(fontSize: 14),
+                  contentPadding: const EdgeInsets.only(top: 8, right: 8, bottom: 8, left: 16),
                   suffixIcon: IconButton(
                       onPressed: () => viewModel.fetchSearchConcertList(context),
-                      icon: Icon(Icons.search_sharp, color: UiConfig.primaryColor)
+                      icon: const Icon(Icons.search_sharp, color: UiConfig.primaryColor)
                   ),
                 ),
                 onSubmitted: (value) => viewModel.fetchSearchConcertList(context),

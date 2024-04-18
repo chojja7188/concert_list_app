@@ -1,4 +1,3 @@
-import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
 import 'package:concert_list_app/presentation/home/home_concert_list.dart';
 import 'package:concert_list_app/presentation/home/home_header.dart';
 import 'package:concert_list_app/presentation/home/home_view_model.dart';
@@ -33,8 +32,8 @@ class _HomeTabState extends State<HomeTab> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            HomeHeader(),
-            SizedBox(height: 16),
+            const HomeHeader(),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Column(

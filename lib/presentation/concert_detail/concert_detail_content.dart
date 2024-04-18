@@ -6,7 +6,6 @@ import 'package:concert_list_app/presentation/concert_detail/concert_detail_view
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ConcertDetailContent extends StatelessWidget {
   final ConcertDetail concertDetail;
@@ -22,35 +21,35 @@ class ConcertDetailContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           StateBadge(state: concertDetail.state),
-          SizedBox(height: 2),
-          Text(concertDetail.name, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
+          const SizedBox(height: 2),
+          Text(concertDetail.name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 4),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(Icons.location_on, size: 20),
-              SizedBox(width: 8),
+              const Icon(Icons.location_on, size: 20),
+              const SizedBox(width: 8),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(concertDetail.stage, style: TextStyle(fontSize: 15)),
-                    SizedBox(height: 4),
-                    Text(stageDetail.address, style: TextStyle(fontSize: 15)),
+                    Text(concertDetail.stage, style: const TextStyle(fontSize: 15)),
+                    const SizedBox(height: 4),
+                    Text(stageDetail.address, style: const TextStyle(fontSize: 15)),
                   ],
                 ),
               )
             ],
           ),
-          SizedBox(height: 8),
-          SizedBox(height: 16),
-          Text('상세 정보', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
+          const SizedBox(height: 16),
+          const Text('상세 정보', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+          const SizedBox(height: 8),
           Container(
-            padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Color(0xfff5f5f5)
+              color: const Color(0xfff5f5f5)
             ),
             child: Column(
               children: [
@@ -60,25 +59,25 @@ class ConcertDetailContent extends StatelessWidget {
                 _buildInfoRow('소요시간', concertDetail.runtime),
                 _buildInfoRow('출연', concertDetail.performer),
                 _buildInfoRow('나이제한', concertDetail.ageLimit),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Divider(height: 1, color: Colors.grey.withOpacity(0.3)),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 concertDetail.price.isEmpty
                     ? Container()
                     : Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                    Spacer(),
-                    Text(concertDetail.price, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                    const Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    const Spacer(),
+                    Text(concertDetail.price, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
                   ],
                 )
               ],
             ),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           _buildInfoImages(concertDetail.infoImages),
-          SizedBox(height: 80),
+          const SizedBox(height: 80),
         ],
       ),
     );
@@ -115,7 +114,7 @@ Widget _buildInfoImages(dynamic images) {
         if (progress == null) {
           return child;
         }
-        return SizedBox(
+        return const SizedBox(
           height: 200,
           child: Center(
             child: SpinKitWaveSpinner(
@@ -135,7 +134,7 @@ Widget _buildInfoImages(dynamic images) {
             if (progress == null) {
               return child;
             }
-            return SizedBox(
+            return const SizedBox(
               height: 200,
               child: Center(
                 child: SpinKitWaveSpinner(

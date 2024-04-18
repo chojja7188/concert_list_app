@@ -32,9 +32,9 @@ class _MainScreenState extends State<MainScreen> {
             api: ConcertApi()
           )
         ),
-        child: SearchTab()
+        child: const SearchTab()
     ),
-    MoreTab()
+    const MoreTab()
   ];
 
   int _selectedTab = 0;
@@ -59,11 +59,11 @@ class _MainScreenState extends State<MainScreen> {
         iconSize: 26,
         unselectedFontSize: 14,
         selectedLabelStyle: null,
-        selectedIconTheme: IconThemeData(
+        selectedIconTheme: const IconThemeData(
           color: UiConfig.primaryColor,
           size: 34
         ),
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
               activeIcon: Icon(Icons.home),
