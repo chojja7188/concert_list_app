@@ -69,6 +69,18 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
           ),
         ),
       ),
+      floatingActionButton: Container(
+        width: 280,
+        child: FloatingActionButton(
+          elevation: 0,
+          backgroundColor: UiConfig.primaryColor,
+          onPressed: () {
+            viewModel.launchWeb(viewModel.concertDetail.id, context);
+          },
+          child: Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

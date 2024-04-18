@@ -21,47 +21,63 @@ class ConcertDetailContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(concertDetail.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
-          Text(concertDetail.stage, style: TextStyle(fontSize: 18)),
-          Text(stageDetail.address),
-          SizedBox(height: 8),
           StateBadge(state: concertDetail.state),
+          SizedBox(height: 2),
+          Text(concertDetail.name, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          SizedBox(height: 4),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.location_on, size: 20),
+              SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(concertDetail.stage, style: TextStyle(fontSize: 15)),
+                    SizedBox(height: 4),
+                    Text(stageDetail.address, style: TextStyle(fontSize: 15)),
+                  ],
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 8),
           SizedBox(height: 16),
-          Text('상세 정보', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+          Text('상세 정보', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
           Container(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Color(0xfffafafa)
+              color: Color(0xfff5f5f5)
             ),
             child: Column(
               children: [
-                _buildInfoRow('가격', concertDetail.price),
                 _buildInfoRow('시작일', concertDetail.startAt),
                 _buildInfoRow('종료일', concertDetail.endAt),
                 _buildInfoRow('관람시간', concertDetail.time),
                 _buildInfoRow('소요시간', concertDetail.runtime),
                 _buildInfoRow('출연', concertDetail.performer),
                 _buildInfoRow('나이제한', concertDetail.ageLimit),
+                SizedBox(height: 8),
+                Divider(height: 1, color: Colors.grey.withOpacity(0.3)),
+                SizedBox(height: 8),
+                concertDetail.price.isEmpty
+                    ? Container()
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    Spacer(),
+                    Text(concertDetail.price, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                  ],
+                )
               ],
             ),
           ),
+          SizedBox(height: 8),
           _buildInfoImages(concertDetail.infoImages),
           SizedBox(height: 40),
-          Center(
-            child: SizedBox(
-              height: 60,
-              width: 400,
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(UiConfig.primaryColor)),
-                  onPressed: () {
-                    viewModel.launchWeb(concertDetail.id, context);
-                  },
-                  child: Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),)
-              ),
-            ),
-          )
         ],
       ),
     );
@@ -72,13 +88,16 @@ Widget _buildInfoRow(String title, String data) {
   if (data.isEmpty) {
     return Container();
   }
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text(title),
-      Spacer(),
-      Text(data)
-    ],
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 6),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(child: Text(title), flex: 1),
+        Expanded(child: Text(data, textAlign: TextAlign.right,), flex: 3)
+      ],
+    ),
   );
 }
 
