@@ -1,5 +1,6 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/domain/model/concert.dart';
+import 'package:concert_list_app/presentation/component/state_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -48,7 +49,7 @@ class SearchConcertCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildStateBox(concert.state),
+                    StateBadge(state: concert.state),
                     SizedBox(height: 4),
                     Text('${concert.startAt} ~ ${concert.endAt}', style: TextStyle(fontSize: 12, color: Colors.grey)),
                     SizedBox(height: 4),
@@ -74,29 +75,6 @@ class SearchConcertCard extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-Widget _buildStateBox(String state) {
-  if (state == '공연완료') {
-    return Container(
-        padding: EdgeInsets.only(left: 8, right: 8, top: 3, bottom: 4),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Color(0xffcacaca), width: 1),
-            color: Colors.white
-        ),
-        child: Text(state, style: TextStyle(color: Color(0xffcacaca), fontSize: 10, fontWeight: FontWeight.bold),)
-    );
-  } else {
-    return Container(
-        padding: EdgeInsets.only(left: 8, right: 8, top: 3, bottom: 4),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            color: Color(0xff282828)
-        ),
-        child: Text(state, style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),)
     );
   }
 }

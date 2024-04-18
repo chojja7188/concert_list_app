@@ -21,6 +21,8 @@ class ConcertDetail with _$ConcertDetail {
     required String genre,
     required String state,
     required String openrun,
+    required dynamic infoImages,
+    required String time
   }) = _ConcertDetail;
 
   factory ConcertDetail.fromJson(Map<String, Object?> json) => _$ConcertDetailFromJson(json);

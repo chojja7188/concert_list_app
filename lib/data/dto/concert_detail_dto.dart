@@ -38,8 +38,7 @@ class ConcertDetailDto {
     genrenm = json['genrenm'];
     openrun = json['openrun'];
     prfstate = json['prfstate'];
-    styurls =
-        json['styurls'] != null ? Styurls.fromJson(json['styurls']) : null;
+    styurls = json['styurls']['styurl'];
     mt10id = json['mt10id'];
     dtguidance = json['dtguidance'];
   }
@@ -60,7 +59,7 @@ class ConcertDetailDto {
   String? genrenm;
   String? openrun;
   String? prfstate;
-  Styurls? styurls;
+  dynamic styurls;
   String? mt10id;
   String? dtguidance;
 
@@ -83,28 +82,10 @@ class ConcertDetailDto {
     map['openrun'] = openrun;
     map['prfstate'] = prfstate;
     if (styurls != null) {
-      map['styurls'] = styurls?.toJson();
+      map['styurls'] = styurls;
     }
     map['mt10id'] = mt10id;
     map['dtguidance'] = dtguidance;
-    return map;
-  }
-}
-
-class Styurls {
-  Styurls({
-    this.styurl,
-  });
-
-  Styurls.fromJson(dynamic json) {
-    styurl = json['styurl'] != null ? json['styurl'].cast<String>() : [];
-  }
-
-  List<String>? styurl;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['styurl'] = styurl;
     return map;
   }
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:concert_list_app/data/dto/concert_detail_dto.dart';
 import 'package:concert_list_app/data/dto/concert_dto.dart';
+import 'package:concert_list_app/data/dto/stage_detail_dto.dart';
 import 'package:concert_list_app/domain/service/xml_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -58,5 +59,16 @@ class ConcertApi {
     print(json);
 
     return ConcertDetailDto.fromJson(json);
+  }
+
+  Future<StageDetailDto> getStageDetail({required String id}) async {
+    final response = await _client.get(Uri.parse(
+        '$_baseUrl/prfplc/$id?service=$_apiKey&newSql=Y'
+    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+
+    final resultString = XmlService().xmlToJson(response);
+    final json = jsonDecode(resultString)['dbs']['db'];
+
+    return StageDetailDto.fromJson(json);
   }
 }

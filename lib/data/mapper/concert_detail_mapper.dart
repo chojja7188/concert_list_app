@@ -18,7 +18,19 @@ extension ToConcertDetail on ConcertDetailDto {
         posterPath: poster ?? '',
         genre: genrenm ?? '',
         state: prfstate ?? '',
-        openrun: openrun ?? ''
+        openrun: openrun ?? '',
+        infoImages: checkInfoImages(styurls),
+        time: dtguidance ?? ''
     );
+  }
+}
+
+dynamic checkInfoImages(dynamic infoImages) {
+  if(infoImages is String) {
+    return infoImages.toString() ?? '';
+  } else if(infoImages is List) {
+    return infoImages.map((e) => e.toString()).toList();
+  } else {
+    return '';
   }
 }

@@ -18,7 +18,6 @@ class HomeConcertBox extends StatelessWidget {
       },
       child: Container(
         width: 140,
-        padding: EdgeInsets.only(bottom: 32),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,

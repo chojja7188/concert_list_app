@@ -34,6 +34,7 @@ class HomeConcertList extends StatelessWidget {
             ).toList(),
           ),
         ),
+        SizedBox(height: 32)
       ],
     );
   }

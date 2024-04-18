@@ -1,4 +1,5 @@
 import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/presentation/concert_detail/concert_detail_content.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -31,35 +32,41 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.arrow_left), onPressed: () {
+        scrolledUnderElevation: 0,
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.white,), onPressed: () {
           context.pop();
         }),
+        backgroundColor: UiConfig.primaryColor,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Hero(
-              tag: widget.id,
-              child: Image.network(
-                widget.posterPath,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                loadingBuilder: (context, child, progress) {
-                  if (progress == null) {
-                    return child;
-                  }
-                  return SizedBox(
-                    height: 200,
-                    child: Center(
-                      child: SpinKitWaveSpinner(
-                        color: UiConfig.primaryColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Hero(
+                tag: widget.id,
+                child: Image.network(
+                  widget.posterPath,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  loadingBuilder: (context, child, progress) {
+                    if (progress == null) {
+                      return child;
+                    }
+                    return SizedBox(
+                      height: 200,
+                      child: Center(
+                        child: SpinKitWaveSpinner(
+                          color: UiConfig.primaryColor,
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+              ConcertDetailContent(concertDetail: viewModel.concertDetail, stageDetail: viewModel.stageDetail,)
+            ],
+          ),
         ),
       ),
     );

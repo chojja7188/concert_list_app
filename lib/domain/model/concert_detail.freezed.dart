@@ -20,33 +20,22 @@ ConcertDetail _$ConcertDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConcertDetail {
-  @JsonKey(name: 'mt20id')
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'mt10id')
   String get stageId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfnm')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfpdfrom')
   String get startAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfpdto')
   String get endAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'fcltynm')
   String get stage => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfcast')
   String get performer => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfruntime')
   String get runtime => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfage')
   String get ageLimit => throw _privateConstructorUsedError;
-  @JsonKey(name: 'pcseguidance')
   String get price => throw _privateConstructorUsedError;
-  @JsonKey(name: 'poster')
   String get posterPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'genrenm')
   String get genre => throw _privateConstructorUsedError;
-  @JsonKey(name: 'prfstate')
   String get state => throw _privateConstructorUsedError;
   String get openrun => throw _privateConstructorUsedError;
+  dynamic get infoImages => throw _privateConstructorUsedError;
+  String get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,20 +50,22 @@ abstract class $ConcertDetailCopyWith<$Res> {
       _$ConcertDetailCopyWithImpl<$Res, ConcertDetail>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'mt20id') String id,
-      @JsonKey(name: 'mt10id') String stageId,
-      @JsonKey(name: 'prfnm') String name,
-      @JsonKey(name: 'prfpdfrom') String startAt,
-      @JsonKey(name: 'prfpdto') String endAt,
-      @JsonKey(name: 'fcltynm') String stage,
-      @JsonKey(name: 'prfcast') String performer,
-      @JsonKey(name: 'prfruntime') String runtime,
-      @JsonKey(name: 'prfage') String ageLimit,
-      @JsonKey(name: 'pcseguidance') String price,
-      @JsonKey(name: 'poster') String posterPath,
-      @JsonKey(name: 'genrenm') String genre,
-      @JsonKey(name: 'prfstate') String state,
-      String openrun});
+      {String id,
+      String stageId,
+      String name,
+      String startAt,
+      String endAt,
+      String stage,
+      String performer,
+      String runtime,
+      String ageLimit,
+      String price,
+      String posterPath,
+      String genre,
+      String state,
+      String openrun,
+      dynamic infoImages,
+      String time});
 }
 
 /// @nodoc
@@ -104,6 +95,8 @@ class _$ConcertDetailCopyWithImpl<$Res, $Val extends ConcertDetail>
     Object? genre = null,
     Object? state = null,
     Object? openrun = null,
+    Object? infoImages = freezed,
+    Object? time = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -162,6 +155,14 @@ class _$ConcertDetailCopyWithImpl<$Res, $Val extends ConcertDetail>
           ? _value.openrun
           : openrun // ignore: cast_nullable_to_non_nullable
               as String,
+      infoImages: freezed == infoImages
+          ? _value.infoImages
+          : infoImages // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -175,20 +176,22 @@ abstract class _$$ConcertDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'mt20id') String id,
-      @JsonKey(name: 'mt10id') String stageId,
-      @JsonKey(name: 'prfnm') String name,
-      @JsonKey(name: 'prfpdfrom') String startAt,
-      @JsonKey(name: 'prfpdto') String endAt,
-      @JsonKey(name: 'fcltynm') String stage,
-      @JsonKey(name: 'prfcast') String performer,
-      @JsonKey(name: 'prfruntime') String runtime,
-      @JsonKey(name: 'prfage') String ageLimit,
-      @JsonKey(name: 'pcseguidance') String price,
-      @JsonKey(name: 'poster') String posterPath,
-      @JsonKey(name: 'genrenm') String genre,
-      @JsonKey(name: 'prfstate') String state,
-      String openrun});
+      {String id,
+      String stageId,
+      String name,
+      String startAt,
+      String endAt,
+      String stage,
+      String performer,
+      String runtime,
+      String ageLimit,
+      String price,
+      String posterPath,
+      String genre,
+      String state,
+      String openrun,
+      dynamic infoImages,
+      String time});
 }
 
 /// @nodoc
@@ -216,6 +219,8 @@ class __$$ConcertDetailImplCopyWithImpl<$Res>
     Object? genre = null,
     Object? state = null,
     Object? openrun = null,
+    Object? infoImages = freezed,
+    Object? time = null,
   }) {
     return _then(_$ConcertDetailImpl(
       id: null == id
@@ -274,6 +279,14 @@ class __$$ConcertDetailImplCopyWithImpl<$Res>
           ? _value.openrun
           : openrun // ignore: cast_nullable_to_non_nullable
               as String,
+      infoImages: freezed == infoImages
+          ? _value.infoImages
+          : infoImages // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -282,69 +295,62 @@ class __$$ConcertDetailImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ConcertDetailImpl implements _ConcertDetail {
   const _$ConcertDetailImpl(
-      {@JsonKey(name: 'mt20id') required this.id,
-      @JsonKey(name: 'mt10id') required this.stageId,
-      @JsonKey(name: 'prfnm') required this.name,
-      @JsonKey(name: 'prfpdfrom') required this.startAt,
-      @JsonKey(name: 'prfpdto') required this.endAt,
-      @JsonKey(name: 'fcltynm') required this.stage,
-      @JsonKey(name: 'prfcast') this.performer = '',
-      @JsonKey(name: 'prfruntime') this.runtime = '',
-      @JsonKey(name: 'prfage') required this.ageLimit,
-      @JsonKey(name: 'pcseguidance') required this.price,
-      @JsonKey(name: 'poster') required this.posterPath,
-      @JsonKey(name: 'genrenm') required this.genre,
-      @JsonKey(name: 'prfstate') required this.state,
-      required this.openrun});
+      {required this.id,
+      required this.stageId,
+      required this.name,
+      required this.startAt,
+      required this.endAt,
+      required this.stage,
+      required this.performer,
+      required this.runtime,
+      required this.ageLimit,
+      required this.price,
+      required this.posterPath,
+      required this.genre,
+      required this.state,
+      required this.openrun,
+      required this.infoImages,
+      required this.time});
 
   factory _$ConcertDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConcertDetailImplFromJson(json);
 
   @override
-  @JsonKey(name: 'mt20id')
   final String id;
   @override
-  @JsonKey(name: 'mt10id')
   final String stageId;
   @override
-  @JsonKey(name: 'prfnm')
   final String name;
   @override
-  @JsonKey(name: 'prfpdfrom')
   final String startAt;
   @override
-  @JsonKey(name: 'prfpdto')
   final String endAt;
   @override
-  @JsonKey(name: 'fcltynm')
   final String stage;
   @override
-  @JsonKey(name: 'prfcast')
   final String performer;
   @override
-  @JsonKey(name: 'prfruntime')
   final String runtime;
   @override
-  @JsonKey(name: 'prfage')
   final String ageLimit;
   @override
-  @JsonKey(name: 'pcseguidance')
   final String price;
   @override
-  @JsonKey(name: 'poster')
   final String posterPath;
   @override
-  @JsonKey(name: 'genrenm')
   final String genre;
   @override
-  @JsonKey(name: 'prfstate')
   final String state;
   @override
   final String openrun;
+  @override
+  final dynamic infoImages;
+  @override
+  final String time;
 
   @override
   String toString() {
-    return 'ConcertDetail(id: $id, stageId: $stageId, name: $name, startAt: $startAt, endAt: $endAt, stage: $stage, performer: $performer, runtime: $runtime, ageLimit: $ageLimit, price: $price, posterPath: $posterPath, genre: $genre, state: $state, openrun: $openrun)';
+    return 'ConcertDetail(id: $id, stageId: $stageId, name: $name, startAt: $startAt, endAt: $endAt, stage: $stage, performer: $performer, runtime: $runtime, ageLimit: $ageLimit, price: $price, posterPath: $posterPath, genre: $genre, state: $state, openrun: $openrun, infoImages: $infoImages, time: $time)';
   }
 
   @override
@@ -368,7 +374,10 @@ class _$ConcertDetailImpl implements _ConcertDetail {
                 other.posterPath == posterPath) &&
             (identical(other.genre, genre) || other.genre == genre) &&
             (identical(other.state, state) || other.state == state) &&
-            (identical(other.openrun, openrun) || other.openrun == openrun));
+            (identical(other.openrun, openrun) || other.openrun == openrun) &&
+            const DeepCollectionEquality()
+                .equals(other.infoImages, infoImages) &&
+            (identical(other.time, time) || other.time == time));
   }
 
   @JsonKey(ignore: true)
@@ -388,7 +397,9 @@ class _$ConcertDetailImpl implements _ConcertDetail {
       posterPath,
       genre,
       state,
-      openrun);
+      openrun,
+      const DeepCollectionEquality().hash(infoImages),
+      time);
 
   @JsonKey(ignore: true)
   @override
@@ -406,65 +417,58 @@ class _$ConcertDetailImpl implements _ConcertDetail {
 
 abstract class _ConcertDetail implements ConcertDetail {
   const factory _ConcertDetail(
-      {@JsonKey(name: 'mt20id') required final String id,
-      @JsonKey(name: 'mt10id') required final String stageId,
-      @JsonKey(name: 'prfnm') required final String name,
-      @JsonKey(name: 'prfpdfrom') required final String startAt,
-      @JsonKey(name: 'prfpdto') required final String endAt,
-      @JsonKey(name: 'fcltynm') required final String stage,
-      @JsonKey(name: 'prfcast') final String performer,
-      @JsonKey(name: 'prfruntime') final String runtime,
-      @JsonKey(name: 'prfage') required final String ageLimit,
-      @JsonKey(name: 'pcseguidance') required final String price,
-      @JsonKey(name: 'poster') required final String posterPath,
-      @JsonKey(name: 'genrenm') required final String genre,
-      @JsonKey(name: 'prfstate') required final String state,
-      required final String openrun}) = _$ConcertDetailImpl;
+      {required final String id,
+      required final String stageId,
+      required final String name,
+      required final String startAt,
+      required final String endAt,
+      required final String stage,
+      required final String performer,
+      required final String runtime,
+      required final String ageLimit,
+      required final String price,
+      required final String posterPath,
+      required final String genre,
+      required final String state,
+      required final String openrun,
+      required final dynamic infoImages,
+      required final String time}) = _$ConcertDetailImpl;
 
   factory _ConcertDetail.fromJson(Map<String, dynamic> json) =
       _$ConcertDetailImpl.fromJson;
 
   @override
-  @JsonKey(name: 'mt20id')
   String get id;
   @override
-  @JsonKey(name: 'mt10id')
   String get stageId;
   @override
-  @JsonKey(name: 'prfnm')
   String get name;
   @override
-  @JsonKey(name: 'prfpdfrom')
   String get startAt;
   @override
-  @JsonKey(name: 'prfpdto')
   String get endAt;
   @override
-  @JsonKey(name: 'fcltynm')
   String get stage;
   @override
-  @JsonKey(name: 'prfcast')
   String get performer;
   @override
-  @JsonKey(name: 'prfruntime')
   String get runtime;
   @override
-  @JsonKey(name: 'prfage')
   String get ageLimit;
   @override
-  @JsonKey(name: 'pcseguidance')
   String get price;
   @override
-  @JsonKey(name: 'poster')
   String get posterPath;
   @override
-  @JsonKey(name: 'genrenm')
   String get genre;
   @override
-  @JsonKey(name: 'prfstate')
   String get state;
   @override
   String get openrun;
+  @override
+  dynamic get infoImages;
+  @override
+  String get time;
   @override
   @JsonKey(ignore: true)
   _$$ConcertDetailImplCopyWith<_$ConcertDetailImpl> get copyWith =>
