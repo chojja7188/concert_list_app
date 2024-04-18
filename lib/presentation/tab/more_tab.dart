@@ -10,6 +10,7 @@ class MoreTab extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MoreMenu(title: '개인정보',),
           Text('본 서비스는 KOPIS OPEN API를 사용하고 있습니다.',
@@ -20,19 +21,5 @@ class MoreTab extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class Test extends StatefulWidget {
-  const Test({Key? key}) : super(key: key);
-
-  @override
-  State<Test> createState() => _TestState();
-}
-
-class _TestState extends State<Test> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
