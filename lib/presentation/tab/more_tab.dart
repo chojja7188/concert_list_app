@@ -30,9 +30,6 @@ class MoreTab extends StatelessWidget {
           const Text("(재)예술경영지원센터 공연예술통합전산망, www.kopis.or.kr",
               style: TextStyle(color: Colors.grey, fontSize: 12)
           ),
-          const SizedBox(height: 20),
-          const Text('버그 제보 : chojja7188@gmail.com',
-              style: TextStyle(color: Colors.grey, fontSize: 12))
         ],
       ),
     );
