@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:concert_list_app/data/dto/concert_detail_dto.dart';
 import 'package:concert_list_app/data/dto/concert_dto.dart';
 import 'package:concert_list_app/data/dto/stage_detail_dto.dart';
+import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:concert_list_app/domain/service/xml_service.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
@@ -18,7 +19,10 @@ class ConcertApi {
   Future<List<ConcertDto>> getTodayConcertList(String date) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$date&eddate=$date&cpage=1&rows=10&shcate=CCCD'
-    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
 
     final resultString = XmlService().xmlToJson(response);
     final List jsonList = jsonDecode(resultString)['dbs']['db'];
@@ -30,7 +34,12 @@ class ConcertApi {
   Future<List<ConcertDto>> getImminentOnDayConcertList(String startDate, String endDate) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=1&rows=10&shcate=CCCD&prfstate=01'
-    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
+
+    if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
 
     final resultString = XmlService().xmlToJson(response);
     final List jsonList = jsonDecode(resultString)['dbs']['db'];
@@ -41,7 +50,12 @@ class ConcertApi {
   Future<List<ConcertDto>> getSearchConcertList(String query, int page, String startDate, String endDate) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=$page&rows=10&shcate=CCCD&$query'
-    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
+
+    if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
 
     final resultString = XmlService().xmlToJson(response);
     final List jsonList = jsonDecode(resultString)['dbs']['db'];
@@ -52,7 +66,12 @@ class ConcertApi {
   Future<ConcertDetailDto> getConcertDetail({required String id}) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/pblprfr/$id?service=$_apiKey&newSql=Y'
-    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
+
+    if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
 
     final resultString = XmlService().xmlToJson(response);
     final json = jsonDecode(resultString)['dbs']['db'];
@@ -64,7 +83,12 @@ class ConcertApi {
   Future<StageDetailDto> getStageDetail({required String id}) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/prfplc/$id?service=$_apiKey&newSql=Y'
-    )).onError((error, stackTrace) => throw Exception('Error: $error'));
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
+
+    if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
 
     final resultString = XmlService().xmlToJson(response);
     final json = jsonDecode(resultString)['dbs']['db'];

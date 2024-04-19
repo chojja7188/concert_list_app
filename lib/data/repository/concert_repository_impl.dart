@@ -8,6 +8,7 @@ import 'package:concert_list_app/domain/model/concert.dart';
 import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/model/stage_detail.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
+import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:intl/intl.dart';
 
 class ConcertRepositoryImpl implements ConcertRepository {
@@ -26,6 +27,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return concertList;
     } catch (e) {
       print(e);
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
   }
@@ -46,6 +48,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return concertList;
     } catch (e) {
       print(e);
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
   }
@@ -68,6 +71,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return concertList;
     } catch (e) {
       print(e);
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
   }
@@ -82,6 +86,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return concertDetail;
     } catch (e) {
       print(e);
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
       return const ConcertDetail(
         id: '',
         stageId: '',
@@ -113,6 +118,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
       return stageDetail;
     } catch (e) {
       print(e);
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
       return const StageDetail(
           id: '',
           address: ''
