@@ -1,0 +1,9 @@
+flutter_native_splash:
+  color: "#1A1718"
+  fullscreen: true
+  image: assets/images/mocon_app_icon2.png
+  android: true
+  ios: true
+  android_12:
+    image: assets/images/mocon_app_icon2.png
+    color: "#1A1718"
