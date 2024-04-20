@@ -11,7 +11,9 @@ class ArchiveConcertList extends StatelessWidget {
     final viewModel = context.watch<ArchiveViewModel>();
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: ListView.builder(
+      child: viewModel.archiveConcertList.isEmpty
+          ? Text('즐겨찾기한 공연이 없습니다')
+          : ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: viewModel.archiveConcertList.length,
