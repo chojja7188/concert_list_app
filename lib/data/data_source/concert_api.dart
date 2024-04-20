@@ -76,7 +76,6 @@ class ConcertApi {
 
     final resultString = XmlService().xmlToJson(response);
     final json = jsonDecode(resultString)['dbs']['db'];
-    print(json);
 
     return ConcertDetailDto.fromJson(json);
   }
