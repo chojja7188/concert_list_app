@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:concert_list_app/data/data_source/concert_api.dart';
+import 'package:concert_list_app/data/dto/concert_dto.dart';
 import 'package:concert_list_app/data/mapper/concert_detail_mapper.dart';
 import 'package:concert_list_app/data/mapper/concert_mapper.dart';
 import 'package:concert_list_app/data/mapper/stage_detail_mapper.dart';
@@ -63,8 +64,15 @@ class ConcertRepositoryImpl implements ConcertRepository {
         DateTime(nowDate.year + 1, nowDate.month, nowDate.day));
 
     try {
-      final dtoList = await _api.getSearchConcertList(
+      final result = await _api.getSearchConcertList(
           query, page, startDate, endDate);
+
+      if (result['dbs'] == null) {
+        ToastService().showToast('마지막 데이터입니다');
+        return [];
+      }
+      final List jsonList = result['dbs']['db'];
+      final List<ConcertDto> dtoList = jsonList.map((e) => ConcertDto.fromJson(e)).toList();
 
       final concertList = dtoList.map((e) => e.toConcert()).toList();
 

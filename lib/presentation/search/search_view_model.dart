@@ -11,10 +11,12 @@ class SearchViewModel with ChangeNotifier {
   SearchViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
   TextEditingController searchController = TextEditingController();
+  ScrollController scrollController = ScrollController();
+
   List<Concert> _searchConcertList = [];
   List<Concert> get searchConcertList => List.unmodifiable(_searchConcertList);
 
-  int _currentPage = 1;
+  int _currentPage = 0;
   String _query = '';
   String get query => _query;
 
@@ -27,8 +29,19 @@ class SearchViewModel with ChangeNotifier {
     showDialog(barrierDismissible: false, context: context, builder: (context) {
       return SpinKitWaveSpinner(color: UiConfig.primaryColor);
     });
-    _searchConcertList = await _concertRepository.getSearchConcertList(query: _query, page: _currentPage);
+    _searchConcertList.addAll(await _concertRepository.getSearchConcertList(query: _query, page: ++_currentPage));
     Navigator.pop(context);
+    notifyListeners();
+  }
+
+  void reset() {
+    _currentPage = 0;
+    _searchConcertList = [];
+  }
+
+  Future<void> pullToRefresh(BuildContext context) async {
+    reset();
+    fetchSearchConcertList(context);
     notifyListeners();
   }
 }

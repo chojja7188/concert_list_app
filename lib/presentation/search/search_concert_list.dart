@@ -15,7 +15,12 @@ class SearchConcertList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: viewModel.query.isEmpty
-          ? const Center(child: Text('검색어를 입력하세요', style: TextStyle(color: UiConfig.primaryColor),))
+          ? Column(
+            children: [
+              Text('검색어를 입력하세요'),
+              Text('(3년 이내의 데이터까지 검색할 수 있습니다)', style: TextStyle(color: Colors.grey, fontSize: 10),)
+            ],
+          )
           : _buildListView(viewModel)
     );
   }
@@ -26,17 +31,17 @@ Widget _buildListView(SearchViewModel viewModel) {
       ? const Center(
       child: Column(
         children: [
-          Text('검색 결과가 없습니다', style: TextStyle(color: UiConfig.primaryColor),),
-          Text('검색어를 확인해주세요', style: TextStyle(color: UiConfig.primaryColor))
+          Text('검색 결과가 없습니다'),
+          Text('검색어를 확인해주세요')
         ],
       ))
-      : ListView(
+      : ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      children: viewModel.searchConcertList
-          .map((e) => Padding(
+      itemCount: viewModel.searchConcertList.length,
+      itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(bottom: 16),
-        child: SearchConcertCard(concert: e),
-      )).toList()
+        child: SearchConcertCard(concert: viewModel.searchConcertList[index]),
+      )
   );
 }

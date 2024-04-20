@@ -24,24 +24,27 @@ class SearchConcertCard extends StatelessWidget {
             children: [
               Hero(
                 tag: concert.id,
-                child: Image.network(
-                  concert.posterPath,
-                  fit: BoxFit.cover,
-                  height: 130,
-                  width: 100,
-                  loadingBuilder: (context, child, progress) {
-                    if (progress == null) {
-                      return child;
-                    }
-                    return const SizedBox(
-                      height: 200,
-                      child: Center(
-                        child: SpinKitWaveSpinner(
-                          color: UiConfig.primaryColor,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    concert.posterPath,
+                    fit: BoxFit.cover,
+                    height: 130,
+                    width: 100,
+                    loadingBuilder: (context, child, progress) {
+                      if (progress == null) {
+                        return child;
+                      }
+                      return const SizedBox(
+                        height: 200,
+                        child: Center(
+                          child: SpinKitWaveSpinner(
+                            color: UiConfig.primaryColor,
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
               const SizedBox(width: 16),

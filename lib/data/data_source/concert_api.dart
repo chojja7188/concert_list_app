@@ -47,7 +47,7 @@ class ConcertApi {
     return jsonList.map((e) => ConcertDto.fromJson(e)).toList();
   }
 
-  Future<List<ConcertDto>> getSearchConcertList(String query, int page, String startDate, String endDate) async {
+  Future<Map<String, dynamic>> getSearchConcertList(String query, int page, String startDate, String endDate) async {
     final response = await _client.get(Uri.parse(
         '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=$page&rows=10&shcate=CCCD&$query'
     )).onError((error, stackTrace) {
@@ -58,9 +58,10 @@ class ConcertApi {
     if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
 
     final resultString = XmlService().xmlToJson(response);
-    final List jsonList = jsonDecode(resultString)['dbs']['db'];
+   // final List jsonList = jsonDecode(resultString)['dbs'];
 
-    return jsonList.map((e) => ConcertDto.fromJson(e)).toList();
+    return jsonDecode(resultString);
+    // return jsonList.map((e) => ConcertDto.fromJson(e)).toList();
   }
 
   Future<ConcertDetailDto> getConcertDetail({required String id}) async {

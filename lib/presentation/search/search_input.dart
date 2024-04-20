@@ -35,11 +35,17 @@ class SearchInput extends StatelessWidget {
                   hintStyle: const TextStyle(fontSize: 14),
                   contentPadding: const EdgeInsets.only(top: 8, right: 8, bottom: 8, left: 16),
                   suffixIcon: IconButton(
-                      onPressed: () => viewModel.fetchSearchConcertList(context),
+                      onPressed: () {
+                        viewModel.reset();
+                        viewModel.fetchSearchConcertList(context);
+                      },
                       icon: const Icon(Icons.search_sharp, color: UiConfig.primaryColor)
                   ),
                 ),
-                onSubmitted: (value) => viewModel.fetchSearchConcertList(context),
+                onSubmitted: (value) {
+                  viewModel.reset();
+                  viewModel.fetchSearchConcertList(context);
+                },
                 onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus()
             ),
           ),
