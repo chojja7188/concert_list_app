@@ -14,7 +14,6 @@ class SearchTab extends StatefulWidget {
 
 class _SearchTabState extends State<SearchTab> {
   final ScrollController _scrollController = ScrollController();
-  List<String> _select = ['sadf', 'sdfdsf', 'rewewrewr', 'wefwe'];
 
   @override
   void initState() {

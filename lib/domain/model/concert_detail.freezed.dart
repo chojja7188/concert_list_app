@@ -20,21 +20,37 @@ ConcertDetail _$ConcertDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ConcertDetail {
+  @HiveField(1)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get stageId => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get startAt => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get endAt => throw _privateConstructorUsedError;
+  @HiveField(6)
   String get stage => throw _privateConstructorUsedError;
+  @HiveField(7)
   String get performer => throw _privateConstructorUsedError;
+  @HiveField(8)
   String get runtime => throw _privateConstructorUsedError;
+  @HiveField(9)
   String get ageLimit => throw _privateConstructorUsedError;
+  @HiveField(10)
   String get price => throw _privateConstructorUsedError;
+  @HiveField(11)
   String get posterPath => throw _privateConstructorUsedError;
+  @HiveField(12)
   String get genre => throw _privateConstructorUsedError;
+  @HiveField(13)
   String get state => throw _privateConstructorUsedError;
+  @HiveField(14)
   String get openrun => throw _privateConstructorUsedError;
+  @HiveField(15)
   dynamic get infoImages => throw _privateConstructorUsedError;
+  @HiveField(16)
   String get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,22 +66,22 @@ abstract class $ConcertDetailCopyWith<$Res> {
       _$ConcertDetailCopyWithImpl<$Res, ConcertDetail>;
   @useResult
   $Res call(
-      {String id,
-      String stageId,
-      String name,
-      String startAt,
-      String endAt,
-      String stage,
-      String performer,
-      String runtime,
-      String ageLimit,
-      String price,
-      String posterPath,
-      String genre,
-      String state,
-      String openrun,
-      dynamic infoImages,
-      String time});
+      {@HiveField(1) String id,
+      @HiveField(2) String stageId,
+      @HiveField(3) String name,
+      @HiveField(4) String startAt,
+      @HiveField(5) String endAt,
+      @HiveField(6) String stage,
+      @HiveField(7) String performer,
+      @HiveField(8) String runtime,
+      @HiveField(9) String ageLimit,
+      @HiveField(10) String price,
+      @HiveField(11) String posterPath,
+      @HiveField(12) String genre,
+      @HiveField(13) String state,
+      @HiveField(14) String openrun,
+      @HiveField(15) dynamic infoImages,
+      @HiveField(16) String time});
 }
 
 /// @nodoc
@@ -176,22 +192,22 @@ abstract class _$$ConcertDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String stageId,
-      String name,
-      String startAt,
-      String endAt,
-      String stage,
-      String performer,
-      String runtime,
-      String ageLimit,
-      String price,
-      String posterPath,
-      String genre,
-      String state,
-      String openrun,
-      dynamic infoImages,
-      String time});
+      {@HiveField(1) String id,
+      @HiveField(2) String stageId,
+      @HiveField(3) String name,
+      @HiveField(4) String startAt,
+      @HiveField(5) String endAt,
+      @HiveField(6) String stage,
+      @HiveField(7) String performer,
+      @HiveField(8) String runtime,
+      @HiveField(9) String ageLimit,
+      @HiveField(10) String price,
+      @HiveField(11) String posterPath,
+      @HiveField(12) String genre,
+      @HiveField(13) String state,
+      @HiveField(14) String openrun,
+      @HiveField(15) dynamic infoImages,
+      @HiveField(16) String time});
 }
 
 /// @nodoc
@@ -293,59 +309,76 @@ class __$$ConcertDetailImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1)
 class _$ConcertDetailImpl implements _ConcertDetail {
   const _$ConcertDetailImpl(
-      {required this.id,
-      required this.stageId,
-      required this.name,
-      required this.startAt,
-      required this.endAt,
-      required this.stage,
-      required this.performer,
-      required this.runtime,
-      required this.ageLimit,
-      required this.price,
-      required this.posterPath,
-      required this.genre,
-      required this.state,
-      required this.openrun,
-      required this.infoImages,
-      required this.time});
+      {@HiveField(1) required this.id,
+      @HiveField(2) required this.stageId,
+      @HiveField(3) required this.name,
+      @HiveField(4) required this.startAt,
+      @HiveField(5) required this.endAt,
+      @HiveField(6) required this.stage,
+      @HiveField(7) required this.performer,
+      @HiveField(8) required this.runtime,
+      @HiveField(9) required this.ageLimit,
+      @HiveField(10) required this.price,
+      @HiveField(11) required this.posterPath,
+      @HiveField(12) required this.genre,
+      @HiveField(13) required this.state,
+      @HiveField(14) required this.openrun,
+      @HiveField(15) required this.infoImages,
+      @HiveField(16) required this.time});
 
   factory _$ConcertDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConcertDetailImplFromJson(json);
 
   @override
+  @HiveField(1)
   final String id;
   @override
+  @HiveField(2)
   final String stageId;
   @override
+  @HiveField(3)
   final String name;
   @override
+  @HiveField(4)
   final String startAt;
   @override
+  @HiveField(5)
   final String endAt;
   @override
+  @HiveField(6)
   final String stage;
   @override
+  @HiveField(7)
   final String performer;
   @override
+  @HiveField(8)
   final String runtime;
   @override
+  @HiveField(9)
   final String ageLimit;
   @override
+  @HiveField(10)
   final String price;
   @override
+  @HiveField(11)
   final String posterPath;
   @override
+  @HiveField(12)
   final String genre;
   @override
+  @HiveField(13)
   final String state;
   @override
+  @HiveField(14)
   final String openrun;
   @override
+  @HiveField(15)
   final dynamic infoImages;
   @override
+  @HiveField(16)
   final String time;
 
   @override
@@ -417,57 +450,73 @@ class _$ConcertDetailImpl implements _ConcertDetail {
 
 abstract class _ConcertDetail implements ConcertDetail {
   const factory _ConcertDetail(
-      {required final String id,
-      required final String stageId,
-      required final String name,
-      required final String startAt,
-      required final String endAt,
-      required final String stage,
-      required final String performer,
-      required final String runtime,
-      required final String ageLimit,
-      required final String price,
-      required final String posterPath,
-      required final String genre,
-      required final String state,
-      required final String openrun,
-      required final dynamic infoImages,
-      required final String time}) = _$ConcertDetailImpl;
+      {@HiveField(1) required final String id,
+      @HiveField(2) required final String stageId,
+      @HiveField(3) required final String name,
+      @HiveField(4) required final String startAt,
+      @HiveField(5) required final String endAt,
+      @HiveField(6) required final String stage,
+      @HiveField(7) required final String performer,
+      @HiveField(8) required final String runtime,
+      @HiveField(9) required final String ageLimit,
+      @HiveField(10) required final String price,
+      @HiveField(11) required final String posterPath,
+      @HiveField(12) required final String genre,
+      @HiveField(13) required final String state,
+      @HiveField(14) required final String openrun,
+      @HiveField(15) required final dynamic infoImages,
+      @HiveField(16) required final String time}) = _$ConcertDetailImpl;
 
   factory _ConcertDetail.fromJson(Map<String, dynamic> json) =
       _$ConcertDetailImpl.fromJson;
 
   @override
+  @HiveField(1)
   String get id;
   @override
+  @HiveField(2)
   String get stageId;
   @override
+  @HiveField(3)
   String get name;
   @override
+  @HiveField(4)
   String get startAt;
   @override
+  @HiveField(5)
   String get endAt;
   @override
+  @HiveField(6)
   String get stage;
   @override
+  @HiveField(7)
   String get performer;
   @override
+  @HiveField(8)
   String get runtime;
   @override
+  @HiveField(9)
   String get ageLimit;
   @override
+  @HiveField(10)
   String get price;
   @override
+  @HiveField(11)
   String get posterPath;
   @override
+  @HiveField(12)
   String get genre;
   @override
+  @HiveField(13)
   String get state;
   @override
+  @HiveField(14)
   String get openrun;
   @override
+  @HiveField(15)
   dynamic get infoImages;
   @override
+  @HiveField(16)
   String get time;
   @override
   @JsonKey(ignore: true)

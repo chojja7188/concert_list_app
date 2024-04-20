@@ -1,7 +1,9 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/data/data_source/concert_api.dart';
 import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
+import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/search/search_view_model.dart';
+import 'package:concert_list_app/presentation/tab/archive_tab.dart';
 import 'package:concert_list_app/presentation/tab/home_tab.dart';
 import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
@@ -20,20 +22,27 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _tabs = [
     ChangeNotifierProvider(
         create: (_) => HomeViewModel(
-          repository: ConcertRepositoryImpl(
-            api: ConcertApi()
-          )
+            repository: ConcertRepositoryImpl(
+                api: ConcertApi()
+            )
         ),
         child: HomeTab()
     ),
     ChangeNotifierProvider(
         create: (_) => SearchViewModel(
-          repository: ConcertRepositoryImpl(
-            api: ConcertApi()
-          )
+            repository: ConcertRepositoryImpl(
+                api: ConcertApi()
+            )
         ),
-        child: const SearchTab()
+        child: SearchTab()
     ),
+    ChangeNotifierProvider(
+      create: (_) => ArchiveViewModel(
+        repository: ConcertRepositoryImpl(
+          api: ConcertApi()
+        )
+      ),
+        child: ArchiveTab()),
     const MoreTab()
   ];
 
@@ -48,13 +57,15 @@ class _MainScreenState extends State<MainScreen> {
           centerTitle: true,
           backgroundColor: UiConfig.primaryColor),
       body: SafeArea(
-          child: IndexedStack(
-            index: _selectedTab,
-            children: _tabs
-          )
+          child: _tabs[_selectedTab]
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => setState(() {_selectedTab = value;}),
+        onTap: (value) async {
+          setState(() {
+            _selectedTab = value;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedTab,
         iconSize: 26,
         unselectedFontSize: 14,
@@ -73,6 +84,11 @@ class _MainScreenState extends State<MainScreen> {
               icon: Icon(Icons.search_outlined),
               activeIcon: Icon(Icons.search),
               label: '검색'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star_border),
+            activeIcon: Icon(Icons.star),
+            label: '즐겨찾기'
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.more_horiz_outlined),

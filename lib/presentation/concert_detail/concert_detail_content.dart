@@ -1,6 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/model/stage_detail.dart';
+import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/component/state_badge.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,29 @@ class ConcertDetailContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          StateBadge(state: concertDetail.state),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              StateBadge(state: concertDetail.state),
+              SizedBox(
+                width: 40,
+                height: 40,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    viewModel.clickArchiveButton();
+                    context.read<ArchiveViewModel>().fetchArchivedConcert();
+                    },
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: viewModel.isArchived
+                      ? Icon(Icons.star, color: Colors.amber, size: 30)
+                      : Icon(Icons.star_border, size: 30,),
+                    )
+                ),
+              )
+            ],
+          ),
           const SizedBox(height: 2),
           Text(concertDetail.name, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 4),

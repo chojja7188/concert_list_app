@@ -1,4 +1,5 @@
 import 'package:concert_list_app/config/ui_config.dart';
+import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_content.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
 import 'package:flutter/material.dart';
@@ -70,17 +71,21 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
         ),
       ),
       floatingActionButton: Container(
-        width: 280,
-        child: FloatingActionButton(
-          elevation: 0,
-          backgroundColor: UiConfig.primaryColor,
-          onPressed: () {
-            viewModel.launchWeb(viewModel.concertDetail.id, context);
-          },
-          child: const Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        width: double.infinity,
+        color: Colors.white,
+        child: Padding(
+          padding: EdgeInsets.only(left: 24, right: 24, top: 12, bottom: 12),
+          child: FloatingActionButton(
+            elevation: 0,
+            backgroundColor: UiConfig.primaryColor,
+            onPressed: () {
+              viewModel.launchWeb(viewModel.concertDetail.id, context);
+            },
+            child: const Text('상세보기', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+          ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
