@@ -38,22 +38,6 @@ class _SearchTabState extends State<SearchTab> {
             SearchHeader(),
             SearchInput(),
             SearchConcertList(),
-            DropdownButton(
-                value: _select[0],
-                items: _select.map((String e) => DropdownMenuItem<String>(
-                  child: Text(e),
-                  value: e,
-                )).toList(),
-                onChanged: (value) {}
-            ),
-            DropdownMenu(
-              label: Text('menu'),
-              dropdownMenuEntries: _select.map((e) => DropdownMenuEntry<String>(value: e, label: e)).toList(),
-              menuStyle: MenuStyle(
-                maximumSize: MaterialStatePropertyAll(Size.fromHeight(120)),
-              ),
-            ),
-
           ],
         ),
       ),
