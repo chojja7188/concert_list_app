@@ -14,7 +14,7 @@ class SearchConcertCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         context.push(
-            Uri(path: '/concertDetail', queryParameters: {'id': concert.id, 'posterPath': concert.posterPath}).toString()
+            Uri(path: '/concertDetail', queryParameters: {'id': concert.id, 'posterPath': concert.posterPath, 'from': 'search'}).toString()
         );
       },
       child: Stack(
@@ -23,7 +23,7 @@ class SearchConcertCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
-                tag: concert.id,
+                tag: '${concert.id}-search',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(

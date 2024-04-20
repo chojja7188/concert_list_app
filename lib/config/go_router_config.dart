@@ -39,7 +39,8 @@ class GoRouterConfig {
                 ],
                 child: ConcertDetailScreen(
                     id: state.uri.queryParameters['id'] as String,
-                    posterPath: state.uri.queryParameters['posterPath'] as String
+                    posterPath: state.uri.queryParameters['posterPath'] as String,
+                    from: state.uri.queryParameters['from'] as String
                 )
               );
             },

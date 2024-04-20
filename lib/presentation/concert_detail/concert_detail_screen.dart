@@ -1,5 +1,4 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_content.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,8 @@ import 'package:provider/provider.dart';
 class ConcertDetailScreen extends StatefulWidget {
   final String id;
   final String posterPath;
-  const ConcertDetailScreen({Key? key, required this.id, required this.posterPath}) : super(key: key);
+  final String from;
+  const ConcertDetailScreen({Key? key, required this.id, required this.posterPath, required this.from}) : super(key: key);
 
   @override
   State<ConcertDetailScreen> createState() => _ConcertDetailScreenState();
@@ -45,7 +45,7 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Hero(
-                tag: widget.id,
+                tag: '${widget.id}-${widget.from}',
                 child: Image.network(
                   widget.posterPath,
                   fit: BoxFit.cover,
