@@ -55,13 +55,14 @@ class ConcertDetailViewModel with ChangeNotifier {
   }
 
   void clickArchiveButton() async {
-    isArchived = !isArchived;
-    notifyListeners();
-
-    if (!isArchived) {
+    if (isArchived) {
       await HiveService().deleteArchivedConcert(concertDetail: concertDetail);
+      isArchived = false;
     } else {
-      await HiveService().addArchivedConcert(concertDetail: concertDetail);
+      bool result = await HiveService().addArchivedConcert(concertDetail: concertDetail);
+      if (result) {
+        isArchived = true;
+      }
     }
     notifyListeners();
   }
