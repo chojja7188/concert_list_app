@@ -10,8 +10,8 @@ class SearchViewModel with ChangeNotifier {
   final ConcertRepository _concertRepository;
   SearchViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
-  TextEditingController searchController = TextEditingController();
-  ScrollController scrollController = ScrollController();
+  TextEditingController _searchController = TextEditingController();
+  TextEditingController get searchController => _searchController;
 
   List<Concert> _searchConcertList = [];
   List<Concert> get searchConcertList => List.unmodifiable(_searchConcertList);
@@ -21,7 +21,7 @@ class SearchViewModel with ChangeNotifier {
   String get query => _query;
 
   void fetchSearchConcertList(BuildContext context) async {
-    if (searchController.text.isEmpty) {
+    if (_searchController.text.isEmpty) {
       ToastService().showToast('검색어를 입력하세요');
       return;
     }

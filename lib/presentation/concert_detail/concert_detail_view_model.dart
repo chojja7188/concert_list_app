@@ -35,16 +35,18 @@ class ConcertDetailViewModel with ChangeNotifier {
     address: ''
   );
 
-  bool isLoading = false;
-  bool isArchived = false;
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+  bool _isArchived = false;
+  bool get isArchived => _isArchived;
 
   void fetchConcertDetail(String id) async {
-    isLoading = true;
+    _isLoading = true;
     notifyListeners();
     concertDetail = await _concertRepository.getConcertDetail(id: id);
     stageDetail = await _concertRepository.getStageDetail(id: concertDetail.stageId);
-    isLoading = false;
-    isArchived = HiveService().isStillContain(concertDetail: concertDetail);
+    _isLoading = false;
+    _isArchived = HiveService().isStillContain(concertDetail: concertDetail);
     notifyListeners();
   }
 
@@ -57,11 +59,11 @@ class ConcertDetailViewModel with ChangeNotifier {
   void clickArchiveButton() async {
     if (isArchived) {
       await HiveService().deleteArchivedConcert(concertDetail: concertDetail);
-      isArchived = false;
+      _isArchived = false;
     } else {
       bool result = await HiveService().addArchivedConcert(concertDetail: concertDetail);
       if (result) {
-        isArchived = true;
+        _isArchived = true;
       }
     }
     notifyListeners();

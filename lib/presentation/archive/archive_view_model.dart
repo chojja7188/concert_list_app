@@ -9,7 +9,7 @@ class ArchiveViewModel with ChangeNotifier{
   ArchiveViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
   List<ConcertDetail> _archiveConcertList = [];
-  List<ConcertDetail> get archiveConcertList => _archiveConcertList;
+  List<ConcertDetail> get archiveConcertList => List.unmodifiable(_archiveConcertList);
 
   void fetchArchivedConcert() async {
     _archiveConcertList = await HiveService().getArchivedConcertList();
