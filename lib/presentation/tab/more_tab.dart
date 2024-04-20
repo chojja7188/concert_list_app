@@ -2,6 +2,7 @@ import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:concert_list_app/presentation/more/more_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MoreTab extends StatelessWidget {
   const MoreTab({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class MoreTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-            onTap: () => ToastService().showToast('본 앱은 개인 정보를 수집하지 않습니다'),
+            onTap: () => launchUrl(Uri.parse('https://arrow-griffin-606.notion.site/MoCon-a3cdf2b6d3f34edd8b602bab0b90926f?pvs=4')),
               child: const MoreMenu(title: '개인정보처리방침')
           ),
           InkWell(
