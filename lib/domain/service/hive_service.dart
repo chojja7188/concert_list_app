@@ -21,7 +21,7 @@ class HiveService {
   }
 
   Future<bool> addArchivedConcert({required ConcertDetail concertDetail}) async {
-    if (Hive.box<ConcertDetail>(boxName).values.length >= 2) {
+    if (Hive.box<ConcertDetail>(boxName).values.length >= 20) {
       ToastService().showToast('최대 20개까지 즐겨찾기 가능합니다');
       return false;
     }
