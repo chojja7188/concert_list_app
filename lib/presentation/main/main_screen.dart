@@ -53,14 +53,21 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
           scrolledUnderElevation: 0,
-          title: Image.asset('assets/images/mocon_logo_light.png', width: 100),
+          title: GestureDetector(
+            onTap: () {
+              setState(() {
+                _selectedTab = 0;
+              });
+            },
+            child: Image.asset('assets/images/mocon_logo_light.png', width: 100)
+          ),
           centerTitle: true,
           backgroundColor: UiConfig.primaryColor),
       body: SafeArea(
           child: _tabs[_selectedTab]
       ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) async {
+        onTap: (value) {
           setState(() {
             _selectedTab = value;
           });
