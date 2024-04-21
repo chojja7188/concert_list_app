@@ -16,7 +16,10 @@ class HomeViewModel with ChangeNotifier {
 
   void fetchHomeConcertList(BuildContext context) async {
     showDialog(barrierDismissible: false, context: context, builder: (context) {
-      return const SpinKitWaveSpinner(color: UiConfig.primaryColor);
+      return PopScope(
+          canPop: false,
+          child: SpinKitWaveSpinner(color: UiConfig.primaryColor)
+      );
     });
     await fetchTodayConcertList();
     await fetchImminentOnDayConcertList();

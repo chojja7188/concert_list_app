@@ -27,7 +27,10 @@ class SearchViewModel with ChangeNotifier {
     }
     _query = 'shprfnm=${searchController.text}';
     showDialog(barrierDismissible: false, context: context, builder: (context) {
-      return SpinKitWaveSpinner(color: UiConfig.primaryColor);
+      return PopScope(
+          canPop: false,
+          child: SpinKitWaveSpinner(color: UiConfig.primaryColor)
+      );
     });
     _searchConcertList.addAll(await _concertRepository.getSearchConcertList(query: _query, page: ++_currentPage));
     Navigator.pop(context);
