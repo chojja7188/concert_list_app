@@ -68,7 +68,7 @@ class ConcertRepositoryImpl implements ConcertRepository {
           query, page, startDate, endDate);
 
       if (result['dbs'] == null) {
-        ToastService().showToast('마지막 데이터입니다');
+        ToastService().showToast('데이터가 없습니다');
         return [];
       }
       final List jsonList = result['dbs']['db'];
