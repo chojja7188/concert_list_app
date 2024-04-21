@@ -3,6 +3,7 @@ import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/model/stage_detail.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
 import 'package:concert_list_app/domain/service/hive_service.dart';
+import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -60,11 +61,13 @@ class ConcertDetailViewModel with ChangeNotifier {
     if (isArchived) {
       await HiveService().deleteArchivedConcert(concertDetail: concertDetail);
       _isArchived = false;
+      ToastService().showToast('즐겨찾기에서 삭제되었습니다');
     } else {
       bool result = await HiveService().addArchivedConcert(concertDetail: concertDetail);
       if (result) {
         _isArchived = true;
       }
+      ToastService().showToast('즐겨찾기에 추가되었습니다');
     }
     notifyListeners();
   }
