@@ -88,11 +88,20 @@ class ConcertDetailContent extends StatelessWidget {
                 concertDetail.price.isEmpty
                     ? Container()
                     : Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                    const Spacer(),
-                    Text(concertDetail.price, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                    Expanded(
+                      flex: 1,
+                        child: Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))),
+                    Expanded(
+                      flex: 9,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: concertDetail.price.split(', ')
+                              .map((e) => Text(e, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15), textAlign: TextAlign.right,)).toList()
+                        ),
+                    )
                   ],
                 )
               ],
