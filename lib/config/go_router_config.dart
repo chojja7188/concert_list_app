@@ -1,5 +1,4 @@
-import 'package:concert_list_app/data/data_source/concert_api.dart';
-import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
+import 'package:concert_list_app/di/di_setup.dart';
 import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_screen.dart';
 import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
@@ -23,18 +22,10 @@ class GoRouterConfig {
               return MultiProvider(
                 providers: [
                   ChangeNotifierProvider(
-                      create: (_) => ConcertDetailViewModel(
-                          repository: ConcertRepositoryImpl(
-                              api: ConcertApi()
-                          )
-                      )
+                      create: (_) => getIt<ConcertDetailViewModel>()
                   ),
                   ChangeNotifierProvider(
-                      create: (_) => ArchiveViewModel(
-                          repository: ConcertRepositoryImpl(
-                              api: ConcertApi()
-                          )
-                      )
+                      create: (_) => getIt<ArchiveViewModel>()
                   ),
                 ],
                 child: ConcertDetailScreen(

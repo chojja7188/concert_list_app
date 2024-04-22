@@ -1,6 +1,7 @@
 import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/data/data_source/concert_api.dart';
 import 'package:concert_list_app/data/repository/concert_repository_impl.dart';
+import 'package:concert_list_app/di/di_setup.dart';
 import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
 import 'package:concert_list_app/presentation/search/search_view_model.dart';
@@ -24,28 +25,16 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _tabs = [
     ChangeNotifierProvider(
-        create: (_) => HomeViewModel(
-            repository: ConcertRepositoryImpl(
-                api: ConcertApi()
-            )
-        ),
+        create: (_) => getIt<HomeViewModel>(),
         child: HomeTab()
     ),
     ChangeNotifierProvider(
-        create: (_) => SearchViewModel(
-            repository: ConcertRepositoryImpl(
-                api: ConcertApi()
-            )
-        ),
-        child: SearchTab()
+        create: (_) => getIt<SearchViewModel>(),
+        child: const SearchTab()
     ),
     ChangeNotifierProvider(
-      create: (_) => ArchiveViewModel(
-        repository: ConcertRepositoryImpl(
-          api: ConcertApi()
-        )
-      ),
-        child: ArchiveTab()),
+      create: (_) => getIt<ArchiveViewModel>(),
+        child: const ArchiveTab()),
     const MoreTab()
   ];
 
