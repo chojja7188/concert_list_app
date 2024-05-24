@@ -16,7 +16,7 @@ class HomeViewModel with ChangeNotifier {
 
   void fetchHomeConcertList(BuildContext context) async {
     showDialog(barrierDismissible: false, context: context, builder: (context) {
-      return PopScope(
+      return const PopScope(
           canPop: false,
           child: SpinKitWaveSpinner(color: UiConfig.primaryColor)
       );

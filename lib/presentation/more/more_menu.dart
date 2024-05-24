@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MoreMenu extends StatelessWidget {
   final String title;
-  const MoreMenu({Key? key, required this.title}) : super(key: key);
+  const MoreMenu({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

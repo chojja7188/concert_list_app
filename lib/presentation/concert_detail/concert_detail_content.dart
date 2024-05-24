@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 class ConcertDetailContent extends StatelessWidget {
   final ConcertDetail concertDetail;
   final StageDetail stageDetail;
-  const ConcertDetailContent({Key? key, required this.concertDetail, required this.stageDetail}) : super(key: key);
+  const ConcertDetailContent({super.key, required this.concertDetail, required this.stageDetail});
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +126,8 @@ Widget _buildInfoRow(String title, String data) {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(child: Text(title), flex: 1),
-        Expanded(child: Text(data, textAlign: TextAlign.right,), flex: 3)
+        Expanded(flex: 1, child: Text(title)),
+        Expanded(flex: 3, child: Text(data, textAlign: TextAlign.right,))
       ],
     ),
   );

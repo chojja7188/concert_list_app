@@ -10,7 +10,7 @@ class ConcertDetailScreen extends StatefulWidget {
   final String id;
   final String posterPath;
   final String from;
-  const ConcertDetailScreen({Key? key, required this.id, required this.posterPath, required this.from}) : super(key: key);
+  const ConcertDetailScreen({super.key, required this.id, required this.posterPath, required this.from});
 
   @override
   State<ConcertDetailScreen> createState() => _ConcertDetailScreenState();
@@ -74,7 +74,7 @@ class _ConcertDetailScreenState extends State<ConcertDetailScreen> {
         width: double.infinity,
         color: Colors.white,
         child: Padding(
-          padding: EdgeInsets.only(left: 24, right: 24, top: 12, bottom: 12),
+          padding: const EdgeInsets.only(left: 24, right: 24, top: 12, bottom: 12),
           child: FloatingActionButton(
             elevation: 0,
             backgroundColor: UiConfig.primaryColor,

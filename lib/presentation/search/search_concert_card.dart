@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 class SearchConcertCard extends StatelessWidget {
   final Concert concert;
-  const SearchConcertCard({Key? key, required this.concert}) : super(key: key);
+  const SearchConcertCard({super.key, required this.concert});
 
   @override
   Widget build(BuildContext context) {

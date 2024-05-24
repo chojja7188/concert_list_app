@@ -10,7 +10,7 @@ class SearchViewModel with ChangeNotifier {
   final ConcertRepository _concertRepository;
   SearchViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   TextEditingController get searchController => _searchController;
 
   List<Concert> _searchConcertList = [];

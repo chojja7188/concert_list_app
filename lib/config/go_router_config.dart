@@ -13,7 +13,7 @@ class GoRouterConfig {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
-          return MainScreen();
+          return const MainScreen();
         },
         routes: <RouteBase>[
           GoRoute(

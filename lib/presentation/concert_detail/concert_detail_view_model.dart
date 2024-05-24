@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ConcertDetailViewModel with ChangeNotifier {
-  ConcertRepository _concertRepository;
+  final ConcertRepository _concertRepository;
 
   ConcertDetailViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 

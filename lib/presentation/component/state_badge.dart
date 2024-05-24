@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class StateBadge extends StatelessWidget {
   final String state;
-  const StateBadge({Key? key, required this.state}) : super(key: key);
+  const StateBadge({super.key, required this.state});
 
   @override
   Widget build(BuildContext context) {
