@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:concert_list_app/domain/model/concert.dart';
 import 'package:concert_list_app/domain/model/concert_detail.dart';
 import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';

@@ -1,8 +1,6 @@
-import 'package:concert_list_app/config/ui_config.dart';
 import 'package:concert_list_app/presentation/search/search_concert_card.dart';
 import 'package:concert_list_app/presentation/search/search_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class SearchConcertList extends StatelessWidget {

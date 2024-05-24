@@ -1,7 +1,6 @@
 import 'package:concert_list_app/presentation/archive/archive_concert_list.dart';
 import 'package:concert_list_app/presentation/archive/archive_header.dart';
 import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
-import 'package:concert_list_app/presentation/concert_detail/concert_detail_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

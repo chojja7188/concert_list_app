@@ -1,5 +1,4 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/data/data_source/concert_api.dart';
 import 'package:concert_list_app/di/di_setup.dart';
 import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:concert_list_app/presentation/archive/archive_view_model.dart';
@@ -10,7 +9,6 @@ import 'package:concert_list_app/presentation/tab/more_tab.dart';
 import 'package:concert_list_app/presentation/tab/search_tab.dart';
 import 'package:concert_list_app/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 

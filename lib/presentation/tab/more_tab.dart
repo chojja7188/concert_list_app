@@ -1,5 +1,4 @@
 import 'package:concert_list_app/config/ui_config.dart';
-import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:concert_list_app/presentation/more/more_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
