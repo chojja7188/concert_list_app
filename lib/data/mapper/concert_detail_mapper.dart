@@ -26,7 +26,7 @@ extension ToConcertDetail on ConcertDetailDto {
 
 dynamic checkInfoImages(dynamic infoImages) {
   if(infoImages is String) {
-    return infoImages.toString() ?? '';
+    return infoImages.toString();
   } else if(infoImages is List) {
     return infoImages.map((e) => e.toString()).toList();
   } else {

@@ -25,7 +25,6 @@ class _ArchiveTabState extends State<ArchiveTab> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<ArchiveViewModel>();
     return SingleChildScrollView(
       child: Column(
         children: [
