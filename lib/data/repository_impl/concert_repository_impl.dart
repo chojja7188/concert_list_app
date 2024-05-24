@@ -25,7 +25,6 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
       return concertList;
     } catch (e) {
-      print(e);
       ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
@@ -46,7 +45,6 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
       return concertList;
     } catch (e) {
-      print(e);
       ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
@@ -76,7 +74,6 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
       return concertList;
     } catch (e) {
-      print(e);
       ToastService().showToast('데이터 불러오기를 실패했습니다');
       return [];
     }
@@ -91,7 +88,6 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
       return concertDetail;
     } catch (e) {
-      print(e);
       ToastService().showToast('데이터 불러오기를 실패했습니다');
       return const ConcertDetail(
         id: '',
@@ -123,7 +119,6 @@ class ConcertRepositoryImpl implements ConcertRepository {
 
       return stageDetail;
     } catch (e) {
-      print(e);
       ToastService().showToast('데이터 불러오기를 실패했습니다');
       return const StageDetail(
           id: '',
