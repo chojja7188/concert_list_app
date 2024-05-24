@@ -27,7 +27,7 @@ class SearchViewModel with ChangeNotifier {
     }
     _query = 'shprfnm=${searchController.text}';
     showDialog(barrierDismissible: false, context: context, builder: (context) {
-      return PopScope(
+      return const PopScope(
           canPop: false,
           child: SpinKitWaveSpinner(color: UiConfig.primaryColor)
       );

@@ -13,7 +13,7 @@ class SearchConcertList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: viewModel.query.isEmpty
-          ? Column(
+          ? const Column(
             children: [
               Text('검색어를 입력하세요'),
               Text('(3년 이내의 데이터까지 검색할 수 있습니다)', style: TextStyle(color: Colors.grey, fontSize: 10),)

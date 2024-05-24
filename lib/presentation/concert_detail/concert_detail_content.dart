@@ -37,8 +37,8 @@ class ConcertDetailContent extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: viewModel.isArchived
-                      ? Icon(Icons.star, color: Colors.amber, size: 30)
-                      : Icon(Icons.star_border, size: 30,),
+                      ? const Icon(Icons.star, color: Colors.amber, size: 30)
+                      : const Icon(Icons.star_border, size: 30,),
                     )
                 ),
               )
@@ -91,7 +91,7 @@ class ConcertDetailContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
+                    const Expanded(
                       flex: 1,
                         child: Text('가격', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))),
                     Expanded(

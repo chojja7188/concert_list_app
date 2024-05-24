@@ -33,7 +33,7 @@ class _SearchTabState extends State<SearchTab> {
       onRefresh: () => context.read<SearchViewModel>().pullToRefresh(context),
       child: SingleChildScrollView(
         controller: _scrollController,
-        child: Column(
+        child: const Column(
           children: [
             SearchHeader(),
             SearchInput(),

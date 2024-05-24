@@ -25,7 +25,7 @@ class _ArchiveTabState extends State<ArchiveTab> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: [
           ArchiveHeader(),
