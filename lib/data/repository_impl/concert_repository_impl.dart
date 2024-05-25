@@ -16,6 +16,21 @@ class ConcertRepositoryImpl implements ConcertRepository {
   ConcertRepositoryImpl({ConcertApi? api}) : _api = api ?? ConcertApi();
 
   @override
+  Future<List<Concert>> getNewConcertList() async {
+    final String nowDate = DateFormat('yyyyMMdd').format(DateTime.now());
+    try {
+      final dtoList = await _api.getNewConcertList(nowDate, '29991231');
+
+      final concertList = dtoList.map((e) => e.toConcert()).toList();
+
+      return concertList;
+    } catch (e) {
+      ToastService().showToast('데이터 불러오기를 실패했습니다');
+      return [];
+    }
+  }
+
+  @override
   Future<List<Concert>> getTodayConcertList() async {
     final String nowDate = DateFormat('yyyyMMdd').format(DateTime.now());
     try {

@@ -9,6 +9,8 @@ class HomeViewModel with ChangeNotifier {
   final ConcertRepository _concertRepository;
   HomeViewModel({ConcertRepository? repository}) : _concertRepository = repository ?? ConcertRepositoryImpl();
 
+  List<Concert> _newConcertList = [];
+  List<Concert> get newConcertList => List.unmodifiable(_newConcertList);
   List<Concert> _todayConcertList = [];
   List<Concert> get todayConcertList => List.unmodifiable(_todayConcertList);
   List<Concert> _imminentOnDayConcertList = [];
@@ -21,9 +23,15 @@ class HomeViewModel with ChangeNotifier {
           child: SpinKitWaveSpinner(color: UiConfig.primaryColor)
       );
     });
+    await fetchOpenrunConcertList();
     await fetchTodayConcertList();
     await fetchImminentOnDayConcertList();
     Navigator.pop(context);
+  }
+
+  Future<void> fetchOpenrunConcertList() async {
+    _newConcertList = await _concertRepository.getNewConcertList();
+    notifyListeners();
   }
 
   Future<void> fetchTodayConcertList() async {

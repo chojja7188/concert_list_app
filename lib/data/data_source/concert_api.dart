@@ -15,6 +15,22 @@ class ConcertApi {
 
   ConcertApi({http.Client? client}) : _client = client ?? http.Client();
 
+  Future<List<ConcertDto>> getNewConcertList(String startDate, String endDate) async {
+    final response = await _client.get(Uri.parse(
+        '$_baseUrl/pblprfr?service=$_apiKey&newSql=Y&stdate=$startDate&eddate=$endDate&cpage=1&rows=10&shcate=CCCD&prfstate=01'
+    )).onError((error, stackTrace) {
+      ToastService().showToast('서버 문제가 발생했습니다');
+      throw Exception('Error: $error');
+    });
+
+    if (response.statusCode != 200) ToastService().showToast('서버 문제가 발생했습니다');
+
+    final resultString = XmlService().xmlToJson(response);
+    final List jsonList = jsonDecode(resultString)['dbs']['db'];
+
+    return jsonList.map((e) => ConcertDto.fromJson(e)).toList();
+  }
+
   // 오늘의 공연 리스트
   Future<List<ConcertDto>> getTodayConcertList(String date) async {
     final response = await _client.get(Uri.parse(

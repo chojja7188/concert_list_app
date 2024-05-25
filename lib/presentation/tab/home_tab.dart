@@ -40,6 +40,11 @@ class _HomeTabState extends State<HomeTab> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   HomeConcertList(
+                      title: '최신 공연',
+                      description: '신규로 등록된 공연입니다.',
+                      concertList: viewModel.newConcertList
+                  ),
+                  HomeConcertList(
                     title: '오늘의 공연',
                     description: '공연일이 금일 당일인 공연입니다.',
                     concertList: viewModel.todayConcertList
