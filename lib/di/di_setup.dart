@@ -17,6 +17,6 @@ void diSetup() {
   // registerFactory
   getIt.registerFactory<HomeViewModel>(() => HomeViewModel(repository: getIt()));
   getIt.registerFactory<SearchViewModel>(() => SearchViewModel(repository: getIt()));
-  getIt.registerFactory<ArchiveViewModel>(() => ArchiveViewModel(repository: getIt()));
+  getIt.registerFactory<ArchiveViewModel>(() => ArchiveViewModel());
   getIt.registerFactory<ConcertDetailViewModel>(() => ConcertDetailViewModel(repository: getIt()));
 }
