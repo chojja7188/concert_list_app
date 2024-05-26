@@ -23,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _tabs = [
     ChangeNotifierProvider(
         create: (_) => getIt<HomeViewModel>(),
-        child: HomeTab()
+        child: const HomeTab()
     ),
     ChangeNotifierProvider(
         create: (_) => getIt<SearchViewModel>(),
