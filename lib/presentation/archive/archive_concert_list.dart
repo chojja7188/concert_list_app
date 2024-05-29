@@ -14,6 +14,7 @@ class ArchiveConcertList extends StatelessWidget {
       child: Column(
         children: [
           const Text('(최대 20개까지 저장할 수 있습니다)', style: TextStyle(color: Colors.grey, fontSize: 10)),
+          const SizedBox(height: 16),
           viewModel.archiveConcertList.isEmpty
               ? const Text('즐겨찾기한 공연이 없습니다')
               : ListView.builder(
