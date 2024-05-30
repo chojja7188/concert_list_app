@@ -4,6 +4,7 @@ import 'package:concert_list_app/domain/model/concert.dart';
 import 'package:concert_list_app/domain/repository/concert_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewModel with ChangeNotifier {
   final ConcertRepository _concertRepository;
@@ -26,7 +27,7 @@ class HomeViewModel with ChangeNotifier {
     await fetchOpenrunConcertList();
     await fetchTodayConcertList();
     await fetchImminentOnDayConcertList();
-    Navigator.pop(context);
+    context.pop();
   }
 
   Future<void> fetchOpenrunConcertList() async {

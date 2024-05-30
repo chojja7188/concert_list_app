@@ -5,6 +5,7 @@ import 'package:concert_list_app/domain/repository/concert_repository.dart';
 import 'package:concert_list_app/domain/service/toast_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchViewModel with ChangeNotifier {
   final ConcertRepository _concertRepository;
@@ -33,7 +34,7 @@ class SearchViewModel with ChangeNotifier {
       );
     });
     _searchConcertList.addAll(await _concertRepository.getSearchConcertList(query: _query, page: ++_currentPage));
-    Navigator.pop(context);
+    context.pop();
     notifyListeners();
   }
 
