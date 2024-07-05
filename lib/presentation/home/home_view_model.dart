@@ -27,7 +27,9 @@ class HomeViewModel with ChangeNotifier {
     await fetchOpenrunConcertList();
     await fetchTodayConcertList();
     await fetchImminentOnDayConcertList();
-    context.pop();
+    if (context.mounted) {
+      context.pop();
+    }
   }
 
   Future<void> fetchOpenrunConcertList() async {

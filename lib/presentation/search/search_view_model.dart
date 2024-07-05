@@ -34,7 +34,9 @@ class SearchViewModel with ChangeNotifier {
       );
     });
     _searchConcertList.addAll(await _concertRepository.getSearchConcertList(query: _query, page: ++_currentPage));
-    context.pop();
+    if (context.mounted) {
+      context.pop();
+    }
     notifyListeners();
   }
 

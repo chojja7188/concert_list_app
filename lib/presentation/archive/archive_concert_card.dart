@@ -18,7 +18,9 @@ class ArchiveConcertCard extends StatelessWidget {
         await context.push(
             Uri(path: '/concertDetail', queryParameters: {'id': concertDetail.id, 'posterPath': concertDetail.posterPath, 'from': 'archive'}).toString()
         );
-        context.read<ArchiveViewModel>().fetchArchivedConcert();
+        if (context.mounted) {
+          context.read<ArchiveViewModel>().fetchArchivedConcert();
+        }
       },
       child: Stack(
         children: [
