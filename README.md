@@ -11,4 +11,7 @@ https://play.google.com/store/apps/details?id=com.mocon.app
 - 공연 정보 보관함(즐겨찾기)에 추가
 
 ## 사용한 기술
-- Provider, MVVM, Clean Architecture, DI
+- Provider
+- MVVM
+- Clean Architecture
+- DI (GetIt)
